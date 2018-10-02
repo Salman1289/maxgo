@@ -1,0 +1,64 @@
+<div id="olegnax-osc-address" class="olegnax-osc-add-loader-into-this-block">
+    <div id="olegnax-osc-address-billing" class="olegnax-osc-block-wrap">
+        <?php $blockNumber = $this->getBlockNumber();?>
+        <?php $blockNumberClass = (!is_null($blockNumber))?"olegnax-osc-icon-{$blockNumber}":"";?>        
+        <h3 class="olegnax-osc-icon <?php echo $blockNumberClass;?>"><?php echo $this->__('Billing Address'); ?></h3>
+        <div class="olegnax-osc-block-content">
+            <?php echo $this->getChildHtml('billing'); ?>
+        </div>        
+    </div>
+    <?php if (!$this->useBillingForShipping()): ?>
+        <div id="olegnax-osc-address-shipping" class="olegnax-osc-block-wrap" style="overflow: hidden;height: 0px;display:none;">            
+            <?php $blockNumber = $this->getBlockNumber(false);?>
+            <?php $blockNumberClass = (!is_null($blockNumber))?"olegnax-osc-icon-{$blockNumber}":"";?>
+            <h3 class="olegnax-osc-icon <?php echo $blockNumberClass;?>"><?php echo $this->__('Shipping Address'); ?></h3>
+            <div class="olegnax-osc-block-content">
+                <?php echo $this->getChildHtml('shipping'); ?>
+            </div>   
+        </div>
+    <?php endif;?>
+</div>
+<script type="text/javascript">
+    var olegnaxOSCAddress = new OnestepcheckoutAddress({
+        containerSelector: '#olegnax-osc-address',
+        billingForShippingCheckbox: "billing:use_for_shipping",
+        billing: {
+            mainContainerSelector: '#olegnax-osc-address-billing',
+            whenAddressChengedSelect: '#billing-address-select',
+            newAddressContainerElement: '#olegnax-osc-billing-address-list',
+            makeNewAccountInput: 'billing:create_account',
+            passwordContainerElement: '#olegnax-osc-billing-password-area',
+            addressChangedElementsIds: [
+                'billing:country_id',
+                'billing:region',
+                'billing:region_id',
+                'billing:city',
+                'billing:postcode'
+            ],
+            addressCountryRegionElementsIds: {
+                'countryId' : 'billing:country_id',
+                'region'    : 'billing:region',
+                'regionId'  : 'billing:region_id'
+            }
+        },
+        shipping: {
+            mainContainerSelector: '#olegnax-osc-address-shipping',
+            whenAddressChengedSelect: '#shipping-address-select',
+            newAddressContainerSelector: '#olegnax-osc-shipping-address-list',
+            addressChangeTriggerElementsIds: [
+                'shipping:country_id',
+                'shipping:region',
+                'shipping:region_id',
+                'shipping:city',
+                'shipping:postcode'
+            ],
+            addressCountryRegionElementsIds: {
+                'countryId' : 'shipping:country_id',
+                'region'    : 'shipping:region',
+                'regionId'  : 'shipping:region_id'
+            }
+        },
+        addressChangedUrl: <?php echo Zend_Json::encode($this->changedUrl());?>,
+        saveAddressUrl: <?php echo Zend_Json::encode($this->getSaveFormValuesUrl());?>
+    });
+</script>

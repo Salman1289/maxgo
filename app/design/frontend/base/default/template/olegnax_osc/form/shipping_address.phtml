@@ -1,0 +1,10 @@
+<?php if (!$this->useBillingForShipping()): ?>
+    <div id="olegnax-osc-address-shipping" class="olegnax-osc-block-wrap" style="overflow: hidden;height: 0px;display:none;">
+        <?php $blockNumber = $this->getBlockNumber(false);?>
+        <?php $blockNumberClass = (!is_null($blockNumber))?"olegnax-osc-icon-{$blockNumber}":"";?>
+        <h3 class="olegnax-osc-icon <?php echo $blockNumberClass;?>"><?php echo $this->__('Shipping Address'); ?></h3>
+        <div class="olegnax-osc-block-content">
+            <?php echo $this->getChildHtml('shipping'); ?>
+        </div>
+    </div>
+<?php endif;?>

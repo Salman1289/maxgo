@@ -1,0 +1,56 @@
+<?php $blockNumber = $this->numberOfBlock();?>
+<?php $blockNumberClass = (!is_null($blockNumber))?"olegnax-osc-icon-{$blockNumber}":"";?>
+    <h3 class="olegnax-osc-icon <?php echo $blockNumberClass;?>"><?php echo $this->__('Payment Method'); ?></h3>
+    <div class="olegnax-osc-block-content olegnax-osc-add-loader-into-this-block">
+        <dl class="sp-methods" id="checkout-payment-method-load">
+            <?php $methods = $this->getMethods(); ?>
+            <?php $oneMethod = count($methods) <= 1; ?>
+            <?php foreach ($methods as $_method): ?>
+                <?php $_code = $_method->getCode(); ?>
+                <dt>
+                    <?php if(!$oneMethod): ?>
+                        <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>"<?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> class="radio" />
+                    <?php else: ?>
+                        <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" class="radio" /></span>
+                        <?php $oneMethod = $_code; ?>
+                    <?php endif; ?>
+                    <label for="p_method_<?php echo $_code ?>"><?php echo $this->escapeHtml($this->getMethodTitle($_method)) ?> <?php echo $this->getMethodLabelAfterHtml($_method) ?></label>
+                </dt>
+                <?php if ($html = $this->getPaymentMethodFormHtml($_method)): ?>
+                    <dd>
+                        <?php echo $html; ?>
+                    </dd>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </dl>
+        <div class="validation-advice" style="display: none;"></div>
+        <?php echo $this->getChildChildHtml('additional'); ?>
+        <div class="tool-tip" id="payment-tool-tip" style="display:none;">            
+           <div class="tool-tip-wrap">
+               <div class="tool-tip-content">           
+                    <div class="btn-close">
+                        <a href="#" id="payment-tool-tip-close" class="olegnax-osc-btn-close" title="<?php echo $this->__('Close') ?>"><?php echo $this->__('Close') ?></a>
+                    </div>
+                    <img src="<?php echo $this->getSkinUrl('images/cvv.gif') ?>" alt="<?php echo $this->__('Card Verification Number Visual Reference') ?>" title="<?php echo $this->__('Card Verification Number Visual Reference') ?>" />
+                </div>
+           </div>
+        </div>
+        <script type="text/javascript">
+            var olegnaxOSCPayment = new OnestepcheckoutPayment({
+                mainContainerSelector: "#olegnax-osc-payment-method",
+                containerWraperSelector: "#olegnax-osc-payment-method",
+                methodsInputsSwitchSelector: "input[name='payment[method]']",
+                additionalPrefix: "payment_form_",
+                cvv: {
+                    tooltipSelector: "#payment-tool-tip",
+                    closeElSelector: "#payment-tool-tip-close, .tool-tip",
+                    triggerElsSelector: ".cvv-what-is-this"
+                },
+//                popup: {
+//                    containerSelector: "#payment-tool-tip"                   
+//                },
+                savePaymentURL: <?php echo Zend_Json::encode($this->savePaymentUrl());?>
+            });
+        </script>
+        <?php echo $this->getChildHtml('extra');?>
+    </div>

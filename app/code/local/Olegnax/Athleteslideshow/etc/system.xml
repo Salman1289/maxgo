@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<config>
+	<sections>
+		<athleteslideshow translate="label" module="athleteslideshow">
+			<label>Slideshow</label>
+			<tab>olegnax_athlete</tab>
+			<sort_order>400</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<config translate="label">
+					<label>Slideshow Config</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+                        <enabled>
+							<label>Enabled: </label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment>Enable/Disable slideshow</comment>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+						</enabled>
+                        <show>
+							<label>Show on: </label>
+							<frontend_type>select</frontend_type>
+                            <source_model>athleteslideshow/config_show</source_model>
+							<comment>Select pages to show slideshow</comment>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>
+						</show>
+                        <slider>
+                            <label>Select slider: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>athleteslideshow/config_slider</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </slider>
+					</fields>
+				</config>
+                <athlete translate="label">
+                    <label>Athlete slider config</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <allowWrap>
+                            <label>Allow wrap: </label>
+                            <frontend_type>select</frontend_type>
+                            <comment>This option determines whether or not a slideshow can advance from the last slide
+	                            to the first (or vice versa). If set to false then once a slideshow reaches its last
+	                            slide it can no longer be advanced forward, it can only advance backward. Likewise,
+	                            when a slideshow is displaying the first slide it can not advance backward.</comment>
+                            <source_model>athleteslideshow/config_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </allowWrap>
+                        <autoHeight>
+                            <label>autoHeight: </label>
+                            <frontend_type>select</frontend_type>
+                            <comment>Animate slider automatically</comment>
+                            <source_model>athleteslideshow/config_autoheight</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </autoHeight>
+	                    <easing>
+                            <label>Easing: </label>
+                            <frontend_type>select</frontend_type>
+                            <comment>Name of the easing function to use for animations.</comment>
+                            <source_model>athleteslideshow/config_easing</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </easing>
+	                    <fx>
+                            <label>Transition effect: </label>
+                            <frontend_type>select</frontend_type>
+                            <comment>The name of the slideshow transition to use</comment>
+                            <source_model>athleteslideshow/config_effect</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </fx>
+	                    <pauseOnHover>
+                            <label>Pause on hover: </label>
+                            <frontend_type>select</frontend_type>
+                            <comment>If true an auto-running slideshow will be paused while the mouse is over the
+	                            slideshow.</comment>
+                            <source_model>athleteslideshow/config_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </pauseOnHover>
+                        <speed>
+                            <label>Transition speed: </label>
+                            <frontend_type>text</frontend_type>
+                            <comment>The speed of the transition effect in milliseconds.</comment>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </speed>
+                        <sync>
+                            <label>Animation sync: </label>
+                            <frontend_type>select</frontend_type>
+                            <comment>If true then animation of the incoming and outgoing slides will be synchronized.
+	                            If false then the animation for the incoming slide will not start until the animation
+	                            for the outgoing slide completes.</comment>
+	                        <source_model>athleteslideshow/config_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </sync>
+	                    <timeout>
+		                    <label>Slide timeout: </label>
+		                    <frontend_type>text</frontend_type>
+		                    <comment>The time between slide transitions in milliseconds.</comment>
+		                    <sort_order>80</sort_order>
+		                    <show_in_default>1</show_in_default>
+		                    <show_in_store>1</show_in_store>
+		                    <show_in_website>1</show_in_website>
+	                    </timeout>
+                        <timeline>
+                            <label>Show timeline: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>athleteslideshow/config_yesno</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </timeline>
+	                    <responsive_banners>
+                            <label>Show banners on devices: </label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                        </responsive_banners>
+                    </fields>
+                </athlete>
+                <revolutionslider>
+                    <label>Revolution slider Config</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<comment>
+						<![CDATA[
+						<style type="text/css">
+							.section-config:last-child { display: none; }
+						</style>
+						<script type="text/javascript">
+							document.observe("dom:loaded", function() 
+							{
+								var ex = false;
+								$$('select#athleteslideshow_config_slider option').each(function(el)
+								{
+								   if(el.value == 'revolution')
+								   {
+									  ex = true;									  
+									  throw $break;
+								   }
+								});
+								if(ex)
+								{										
+									$('athleteslideshow_revolutionslider-head').up(1).setStyle({ display: 'block' });
+								}
+							});
+						</script>
+						]]>
+					</comment>
+                    <fields>
+						<slider_id>								
+							<label>Select slider id: </label>
+							<frontend_type>select</frontend_type>
+							<source_model>athleteslideshow/config_revslider</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_store>1</show_in_store>
+							<show_in_website>1</show_in_website>							
+						</slider_id>						
+					</fields>
+                </revolutionslider>
+			</groups>
+		</athleteslideshow>
+	</sections>
+</config>

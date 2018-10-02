@@ -1,0 +1,1459 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <olegnaxall translate="label" module="olegnax_osc">
+            <label>Olegnax Extensions</label>
+            <sort_order>300</sort_order>
+        </olegnaxall>
+    </tabs>
+    <sections>
+        <olegnax_osc translate="label" module="olegnax_osc">
+            <label>One Step Checkout</label>
+            <tab>olegnaxall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<comment><![CDATA[<H2><strong>Version - 1.0 "Athlete" Edition. </strong></H2> <p style="font-size:14px;">Upgrade to the Premium Version of Olegnax One Step Checkout to benefit from all features!</p><p style="font-size:14px;"> Check for latest version on <a href="http://olegnax.com/product/one-step-checkout-magento-extension/" target="_blank" style="color: #ea7601;">Olegnax.com</a></p><br/><br/>]]></comment>						
+                    <fields>
+				
+                        <is_enabled translate="label">
+                            <label>Enable One Step Checkout</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </is_enabled>
+						 <title translate="label">
+                            <label>Page Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <description translate="label">
+                            <label>Page Description</label>
+                            <frontend_type>textarea</frontend_type>
+                            <comment>Additional content under page title. HTML allowed.</comment>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>						
+                        <redirect_to translate="label">
+                            <label>Redirect to Checkout After Adding Product to Cart</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </redirect_to>						
+                        <is_use_billing_as_shipping translate="label">
+                            <label>Use Billing Address as Shipping Address</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>							
+                        </is_use_billing_as_shipping>                       
+<!--                        <is_block_numbering translate="label">
+                            <label>Show Blocks Numbering</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </is_block_numbering>-->
+						 <is_cart_editable translate="label">
+                            <label>Editable Cart in Order Review Block</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<frontend_model>olegnax_osc/field_disabled</frontend_model>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment><![CDATA[<strong>* This option available in <a href="http://olegnax.com/product/one-step-checkout-magento-extension/" style="color: #ea7601;">Premium</a> version only.</strong>]]></comment>
+                        </is_cart_editable>
+						<display_apply_coupon_button translate="label">
+                            <label>Show "Apply Coupon" Button</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </display_apply_coupon_button>
+						<gd_title translate="label">
+							<label>DEFAULT VALUES</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</gd_title>
+                        <default_payment_method translate="label">
+                            <label>Default Payment Method</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_paymentmethods</source_model>
+                        </default_payment_method>
+                        <default_shipping_method translate="label">
+                            <label>Default Shipping Method</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_shippingmethods</source_model>
+                        </default_shipping_method>
+					</fields>
+                </general>
+				
+				  <frontend translate="label">
+                    <label>Layout</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>					
+                    <fields>                        
+                        <enable_responsive translate="label">
+                            <label>Enabled Responsive Design</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_responsive>
+                        <columns_count translate="label">
+                            <label>Columns Count</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_columns</source_model>
+                        </columns_count>
+<!--                        <layout_1 translate="label">
+                            <label>Layout</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_onecolumn</source_model>
+                            <depends><columns_count>column_1</columns_count></depends>
+                        </layout_1>
+                        <layout_2 translate="label">
+                            <label>Layout</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_twocolumn</source_model>
+                            <depends><columns_count>columns_2</columns_count></depends>
+                        </layout_2>
+                        <layout_3 translate="label">
+                            <label>Layout</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_threecolumn</source_model>
+                            <depends><columns_count>columns_3</columns_count></depends>
+                        </layout_3>-->
+                    </fields>
+                </frontend>
+				
+                <exclude_include_fields translate="label">
+                    <label>Fields - Enable / Disable</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>15</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+					<bf_title translate="label">
+							<label>BILLING / SHIPPING FIELDS</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+													
+						</bf_title>
+                     <!--   <country translate="label">
+                            <label><![CDATA[Country]]></label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_enableddisabled</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </country>
+                        <region translate="label">
+                            <label><![CDATA[Region/State]]></label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_enableddisabled</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </region>-->
+                        <postcode translate="label">
+                            <label><![CDATA[ZIP/Postal Code]]></label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_enableddisabled</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </postcode>
+                        <city translate="label">
+                            <label><![CDATA[City]]></label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_enableddisabled</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </city>
+                        <street_line1 translate="label">
+                            <label><![CDATA[Street Address]]></label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_enableddisabled</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </street_line1>
+                        <is_telephone translate="label">
+                            <label><![CDATA[Telephone]]></label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_enableddisabled</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </is_telephone>
+                        <is_fax translate="label">
+                            <label>Fax</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_enableddisabled</source_model>
+                        </is_fax>
+                        <is_company translate="label">
+                            <label>Company</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_enableddisabled</source_model>
+                        </is_company>
+						<aobf_title translate="label">
+							<label>ADDITIONAL ORDER BLOCK FIELDS</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>105</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+													
+						</aobf_title>
+                        <is_coupon translate="label">
+                            <label>Discount Code</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_enableddisabled</source_model>
+                        </is_coupon>
+                        <is_comments translate="label comment">
+                            <label>Comments</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_enableddisabled</source_model>
+                        </is_comments>
+                        <is_newsletter translate="label comment">
+                            <label>Newsletter Subscription</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_enableddisabled</source_model>
+                        </is_newsletter>
+                    </fields>
+                </exclude_include_fields>
+
+
+                <required_fields translate="label">
+                    <label>Fields - Required</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+                        <!--<country translate="label">
+                            <label><![CDATA[Country]]></label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </country>-->
+                        <postcode translate="label">
+                            <label><![CDATA[ZIP/Postal Code]]></label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </postcode>
+                        <city translate="label">
+                            <label><![CDATA[City]]></label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </city>
+                        <street translate="label">
+                            <label><![CDATA[Street Address]]></label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </street>
+                        <telephone translate="label">
+                            <label><![CDATA[Telephone]]></label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </telephone>
+                        <fax translate="label">
+                            <label>Fax</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </fax>
+                        <company translate="label">
+                            <label>Company</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </company>
+                        <vat_id translate="label">
+                            <label>Address Vat</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>111</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </vat_id>
+                    </fields>
+                </required_fields>
+
+
+                <sortordering_fields translate="label comment">
+                    <label>Fields - Sorting order</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>21</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <customer_name translate="label">
+                            <label>Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customer_name>
+                        <email translate="label">
+                            <label>E-mail</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email>
+                        <telephone translate="label">
+                            <label>Telephone</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </telephone>
+                        <street translate="label">
+                            <label>Street fields</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </street>
+                        <country_id translate="label">
+                            <label>Country</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </country_id>
+                        <region_id translate="label">
+                            <label>Region</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </region_id>
+                        <city translate="label">
+                            <label>City</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </city>
+                        <postcode translate="label">
+                            <label>Zip/Postal Code</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </postcode>
+                        <company translate="label">
+                            <label>Company</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </company>
+                        <fax translate="label">
+                            <label>Fax</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fax>
+                        <taxvat translate="label">
+                            <label>Customer Vat</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </taxvat>
+                        <vatid translate="label">
+                            <label>Address Vat</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </vatid>
+                        <dob translate="label">
+                            <label>Date of birth</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dob>
+                        <gender translate="label">
+                            <label>Gender</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </gender>
+                    </fields>
+                </sortordering_fields>
+				
+				 <address_settings translate="label">
+                    <label>Fields - Default Values</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>22</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <country_id translate="label">
+                            <label>Country</label>
+                            <frontend_type>select</frontend_type>
+                            <frontend_class>countries</frontend_class>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </country_id>
+                        <region_id translate="label">
+                            <label>Region/State</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </region_id>
+                        <postcode translate="label">
+                            <label>ZIP/Postal Code</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </postcode>
+                        <city translate="label">
+                            <label>City</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </city>
+                        <street_line1 translate="label comment">
+                            <label>Street Address</label>
+                            <comment><![CDATA[should be in preferred format, e.g.<br />50 Automata Street]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </street_line1>
+                        <telephone translate="label comment">
+                            <label>Telephone</label>
+                            <comment><![CDATA[should be in preferred format, e.g.<br />+12.0000000000]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </telephone>
+                        <fax translate="label comment">
+                            <label>Fax</label>
+                            <comment><![CDATA[should be in preferred format, e.g.<br />+12.0000000000]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fax>
+                        <company translate="label">
+                            <label>Company</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </company>
+
+                    </fields>
+                </address_settings>
+
+
+              
+                
+                <block_columns translate="label comment">
+                    <label>Blocks - Column Position</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>25</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<comment><![CDATA[Choose in what column to display each block. You can set values from 1 to 3. <br/><strong>Please note.</strong> Block won't be displayed if you set value bigger than amount of columns ( that can be set in Layout section).<br/><br/>]]></comment>
+                    <fields>
+                        <billing_address translate="label">
+                            <label>Billing Address</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </billing_address>
+                        <shipping_address translate="label">
+                            <label>Shipping Address</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipping_address>
+                        <shipping translate="label">
+                            <label>Shipping Method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipping>
+                        <payment translate="label">
+                            <label>Payment Method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </payment>
+                        <giftcard translate="label">
+                            <label>Gift Card</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </giftcard>
+                        <review translate="label">
+                            <label>Order Review</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </review>
+                        <totals translate="label">
+                            <label>Order Totals</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </totals>
+                    </fields>
+                </block_columns>
+                
+                <block_ordering translate="label comment">
+                    <label>Blocks - Sorting Order</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>27</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<comment><![CDATA[Make sure to set blocks position in columns first. Sorting order is different for each column.<br/><br/>]]></comment>
+                    <fields>
+                        <billing_address translate="label">
+                            <label>Billing Address</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </billing_address>
+                        <shipping_address translate="label">
+                            <label>Shipping Address</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipping_address>
+                        <shipping translate="label">
+                            <label>Shipping Method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipping>
+                        <payment translate="label">
+                            <label>Payment Method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </payment>
+                        <giftcard translate="label">
+                            <label>Gift Card</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </giftcard>
+                        <review translate="label">
+                            <label>Order Review</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </review>
+                        <totals translate="label">
+                            <label>Order Totals</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </totals>
+                    </fields>
+                </block_ordering>
+
+                <geoip translate="label">
+                    <label>GeoIP</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<comment><![CDATA[<strong>* Following options available in <a href="http://olegnax.com/product/one-step-checkout-magento-extension/" style="color: #ea7601;">Premium</a> version only.</strong>]]></comment>
+                    <fields>
+                        <enable translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<frontend_model>olegnax_osc/field_disabled</frontend_model>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable>
+                        <path translate="label">
+                            <label>Path to MaxMind GeoLite2 Database</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<frontend_model>olegnax_osc/field_disabled</frontend_model>
+                        </path>
+						<trigger translate="label">
+                            <label>Download Free Version</label>
+                            <frontend_type>select</frontend_type>							
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<frontend_model>olegnax_osc/field_disabled</frontend_model>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </trigger>
+                        <!--<donwload translate="label">
+                            <label>Download Free Version</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>olegnax_osc/adminhtml_system_config_form_button_download</frontend_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </donwload>-->
+                    </fields>
+                </geoip>
+                <reset translate="label">
+                    <label>Reset Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<trigger translate="label">
+                            <label>Reset Settings</label>
+                            <frontend_type>select</frontend_type>
+							<comment><![CDATA[<strong style="color:red">Warning!</strong> This will reset all setting on current tab for all websites.]]></comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </trigger>
+                        <!--<donwload translate="label comment">
+                            <label>Reset</label>
+                            <frontend_type>button</frontend_type>
+                            <comment><![CDATA[<strong style="color:red">Warning!</strong> This will reset all setting on current tab for all websites.]]></comment>
+                            <frontend_model>olegnax_osc/adminhtml_system_config_form_button_reset</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </donwload>-->
+                    </fields>
+                </reset>
+				<premium translate="label">
+				<label>Upgrade to Premium</label>
+				<frontend_type>text</frontend_type>
+                    <sort_order>70</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>			
+				    <fields>
+                	    <info translate="label">
+                 		  <frontend_model>olegnax_osc/premium</frontend_model>
+                	  	  <sort_order>1</sort_order>
+                	  	  <show_in_default>1</show_in_default>
+                	 	  <show_in_website>1</show_in_website>
+                		  <show_in_store>1</show_in_store>
+                	    </info>
+                    </fields>
+				</premium>
+            </groups>
+        </olegnax_osc>
+        <olegnax_appearance translate="label" module="olegnax_osc">
+                <label>OSC - Appearance</label>
+                <tab>olegnaxall</tab>
+                <frontend_type>text</frontend_type>
+                <sort_order>100</sort_order>
+                <show_in_default>1</show_in_default>
+                <show_in_website>1</show_in_website>
+                <show_in_store>1</show_in_store>
+                <groups>                  
+                    <skin translate="label">
+                      <label>Skin</label>
+                      <frontend_type>text</frontend_type>
+                      <sort_order>5</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                      <fields>
+                        <skin translate="label comment">
+                            <label>Choose Skin</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_skin</source_model>
+                            <backend_model>olegnax_osc/backend_skin</backend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<frontend_model>olegnax_osc/field_disabled</frontend_model>
+							<comment><![CDATA[<strong>* This option available in <a href="http://olegnax.com/product/one-step-checkout-magento-extension/" style="color: #ea7601;">Premium</a> version only.</strong>]]></comment>
+                        </skin>
+                      </fields>
+                    </skin>
+                    <general_app translate="label">
+                      <label>General</label>
+                      <frontend_type>text</frontend_type>
+                      <sort_order>10</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                      <fields>
+                        <page_background_color translate="label">
+                            <label>Page background color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </page_background_color>                                                
+                        <page_title_background_color translate="label">
+                            <label>Page title background color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </page_title_background_color>
+                        <page_title_color translate="label">
+                            <label>Page title color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </page_title_color>
+                        <page_title_fontsize translate="label comment">
+                            <label>Page title font size</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Use pixels</comment>
+                        </page_title_fontsize>
+                        <page_title_fontweight translate="label comment">
+                            <label>Page title font weight</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_weight</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </page_title_fontweight>
+                        <page_title_font translate="label comment">
+                            <label>Page title font</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_fontreplacement</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </page_title_font>
+                        <page_title_gfont translate="label comment">
+                            <label>Google Fonts</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_gfont</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <page_title_font>2</page_title_font>
+                            </depends>
+                        </page_title_gfont>
+                      </fields>
+                    </general_app>
+
+                    <title_app translate="label">
+                      <label>Title</label>
+                      <frontend_type>text</frontend_type>
+                      <sort_order>20</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                      <fields>
+                        <title_background_color translate="label">
+                            <label>Title background color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title_background_color>
+                        <title_font_color translate="label">
+                            <label>Title font color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title_font_color>
+                        <title_fontsize translate="label comment">
+                            <label>Title font size</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Use pixels</comment>
+                        </title_fontsize>
+                        <title_fontweight translate="label comment">
+                            <label>Title font weight</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_weight</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title_fontweight>
+                        <title_font translate="label comment">
+                            <label>Title font</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_fontreplacement</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title_font>
+                        <title_gfont translate="label comment">
+                            <label>Google Fonts</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_gfont</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <title_font>2</title_font>
+                            </depends>
+                        </title_gfont>
+
+                        <title_icons translate="label comment">
+                            <label>Title icons</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_icons</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title_icons>
+                        
+                        <title_align translate="label comment">
+                            <label>Title align</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_align</source_model>
+                            <sort_order>81</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>                            
+                        </title_align>
+
+                        <title_icon_pos translate="label comment">
+                            <label>Title icon position</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_iconpos</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title_icon_pos>
+
+                      </fields>
+                    </title_app>
+
+                    <content_app translate="label">
+                      <label>Content</label>
+                      <frontend_type>text</frontend_type>
+                      <sort_order>30</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                      <fields>
+                        <content_blocks_background_color translate="label">
+                            <label>Content blocks background color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </content_blocks_background_color>
+                        <content_blocks_border_color translate="label">
+                            <label>Content blocks border color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </content_blocks_border_color>
+                        <content_blocks_border_width translate="label comment">
+                            <label>Content blocks border width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Use pixels</comment>
+                        </content_blocks_border_width>
+                        <content_inputs_border_color translate="label">
+                            <label>Inputs border color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_inputs_border_color>
+                        <content_divider_color translate="label">
+                            <label>Content dividers color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_divider_color>
+                        <content_title_divider_color translate="label">
+                            <label>Title divider color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_title_divider_color>
+                        <content_title_border_width translate="label comment">
+                            <label>Title divider border width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>61</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Use pixels</comment>
+                        </content_title_border_width>
+                        <content_font_color translate="label comment">
+                            <label>Fonts :: Content font color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_font_color>
+                        <content_fonts translate="label comment">
+                            <label>Fonts :: Content font</label>
+                            <frontend_type>Select</frontend_type>
+                            <source_model>olegnax_osc/backend_controls_fonts</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </content_fonts>
+                        <content_fontsize translate="label comment">
+                            <label>Fonts :: Content font size</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Use pixels</comment>
+                        </content_fontsize>
+                        <content_price_fontsize translate="label comment">
+                            <label>Fonts :: Prices font size</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>91</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Use pixels</comment>
+                        </content_price_fontsize>
+                        <content_link_color translate="label">
+                            <label>Links :: Link color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_link_color>
+                        <content_hoverlink_color translate="label">
+                            <label>Links :: Link hover color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_hoverlink_color>
+                        
+                        <content_button_color translate="label">
+                            <label>Buttons :: Buttons color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_button_color>
+                        <content_hoverbutton_color translate="label">
+                            <label>Buttons :: Buttons hover color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_hoverbutton_color>
+                        
+                        <content_button_text_color translate="label">
+                            <label>Buttons :: Buttons text color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>131</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_button_text_color>
+                        <content_button_hover_text_color translate="label">
+                            <label>Buttons :: Buttons hover text color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>132</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_button_hover_text_color>
+                        
+                        <content_button_color_inversion translate="label">
+                            <label>Buttons :: Buttons icon color inversion</label>
+                            <frontend_type>Select</frontend_type>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_iconinv</source_model>
+                        </content_button_color_inversion>
+
+                        <content_button_style translate="label">
+                            <label>Buttons :: Content buttons style</label>
+                            <frontend_type>Select</frontend_type>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_buttonstyle</source_model>
+                        </content_button_style>
+
+                        <content_qty_button_color translate="label">
+                            <label>Buttons :: Quantity button color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_qty_button_color>
+                        <content_qty_hoverbutton_color translate="label">
+                            <label>Buttons :: Quantity button hover color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_qty_hoverbutton_color>
+                        <content_qty_button_color_inversion translate="label">
+                            <label>Buttons :: Quantity button icons color inversion</label>
+                            <frontend_type>Select</frontend_type>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>olegnax_osc/backend_controls_iconinv</source_model>
+                        </content_qty_button_color_inversion>                      
+                        
+                        <content_price_color translate="label">
+                            <label>Price :: Regular price color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_price_color>
+                        <content_discount_price_color translate="label">
+                            <label>Price :: Discount price color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_discount_price_color>
+
+                        <content_special_price_color translate="label">
+                            <label>Price :: Special price color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </content_special_price_color>
+
+
+
+                      </fields>
+                    </content_app>
+
+                    <place_order_app translate="label">
+                      <label>Place Order Block</label>
+                      <frontend_type>text</frontend_type>
+                      <sort_order>40</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                      <fields>
+                        <place_order_background_color translate="label">
+                            <label>"Place Order" block background</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </place_order_background_color>
+                        <place_order_fontsize translate="label comment">
+                            <label>"Place Order" font size</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Use pixels</comment>
+                        </place_order_fontsize>
+                        
+                        <place_order_button_color translate="label">
+                            <label>"Place Order" button color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </place_order_button_color>
+                        <place_order_button_hover_color translate="label">
+                            <label>"Place Order" button hover color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </place_order_button_hover_color>
+                        
+                        <place_order_button_text_color translate="label">
+                            <label>"Place Order" button text color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </place_order_button_text_color>
+                        <place_order_button_hover_text_color translate="label">
+                            <label>"Place Order" button hover text color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </place_order_button_hover_text_color>
+                        
+                        <place_order_block_border_color translate="label">
+                            <label>"Place Order" block border color</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>color</validate>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </place_order_block_border_color>
+
+                        <place_order_block_border_width translate="label comment">
+                            <label>"Place Order" block border width</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Use pixels</comment>
+                        </place_order_block_border_width>
+                        
+                        <place_order_grandtotal_fontsize translate="label comment">
+                            <label>"Place Order" grand total font size</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>51</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Use pixels</comment>
+                        </place_order_grandtotal_fontsize>
+                        <place_order_grandtotal_font_color translate="label comment">
+                            <label>"Place Order" grand total font color</label>
+                            <frontend_type>Text</frontend_type>
+                            <sort_order>52</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>color</validate>
+                        </place_order_grandtotal_font_color>
+                      </fields>
+                    </place_order_app>
+					
+					  <css translate="label">
+                      <label>CSS Rules</label>
+                      <frontend_type>text</frontend_type>
+                      <sort_order>90</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                      <fields>
+                        <rules translate="label comment">
+                            <label>Custom CSS Rules</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[You can add your custom css styles here.]]></comment>
+                        </rules>
+                      </fields>
+                    </css>
+                    <reset translate="label">
+                        <label>Reset Settings</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>50</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <fields>
+							<!--HACK FOR OSC CONFIGURATION RESET/DOWNLOAD BEGIN-->
+							<trigger translate="label">
+								<label>Reset Settings</label>
+								<frontend_type>select</frontend_type>
+								<comment><![CDATA[<strong style="color:red">Warning!</strong> This will reset all setting on current tab for all websites.]]></comment>
+								<sort_order>10</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>0</show_in_website>
+								<show_in_store>0</show_in_store>
+								<source_model>adminhtml/system_config_source_yesno</source_model>
+							</trigger>
+							<!--HACK FOR OSC CONFIGURATION RESET/DOWNLOAD END-->
+                            <!--<donwload translate="label comment">
+                                <label>Reset</label>
+                                <frontend_type>button</frontend_type>
+                                <comment><![CDATA[<strong style="color:red">Warning!</strong> This will reset all setting on current tab for all websites.]]></comment>
+                                <frontend_model>olegnax_osc/adminhtml_system_config_form_button_reset</frontend_model>
+                                <sort_order>10</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>0</show_in_website>
+                                <show_in_store>0</show_in_store>
+                            </donwload>-->
+                        </fields>
+                    </reset>
+               </groups>
+       </olegnax_appearance>
+
+    </sections>
+</config>

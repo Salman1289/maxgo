@@ -1,0 +1,37 @@
+<div id="olegnax-osc-review-cart">        
+        <table class="olegnax-osc-cart-table">
+            <col />
+            <col width="1" />
+            <col width="1" />
+            <thead>
+                <tr>
+                    <th class="name a-left btn-remove-hidden"><?php echo $this->__('Product name') ?></th>
+                    <th class="qty a-center"><?php echo $this->__('Quantity') ?></th>
+                    <th class="total a-right"><?php echo $this->__('Subtotal') ?></th>
+                </tr>
+            </thead>
+            <?php echo $this->getChildHtml('totals'); ?>
+            <tbody>
+                <?php foreach($this->getItems() as $_item): ?>
+                    <?php echo $this->getItemHtml($_item)?>
+                <?php endforeach ?>
+            </tbody>			
+        </table>		
+</div>
+<script type="text/javascript">
+    var olegnaxOSCReviewCartBlock = new OnestepcheckoutReviewCart({
+        containerSelector: "#olegnax-osc-review-cart",
+        relatedBlockContainerSelector: "#olegnax-osc-related",
+        useForShippingCheckboxContainerSelector: "#olegnax-osc-billing-use-for-shipping",
+        removeLinkSelector: ".olegnax-osc-cart-table a.btn-remove2",
+        updateQtySelector: ".olegnax-osc-cart-table button.adjust-qty",
+        qtySelector: ".olegnax-osc-cart-table input.qty-editable",
+		updateQtyButton: "#adjust-qty-update",
+        cartUpdateURL: <?php echo '"' . $this->updateCartURL() . '"'; ?>,
+        imbricateSettings: {
+            '48px': 'olegnax-osc-background olegnax-osc-loader olegnax-osc-loader-48',
+            '24px': 'olegnax-osc-background olegnax-osc-loader olegnax-osc-loader-24',
+            '16px': 'olegnax-osc-background olegnax-osc-loader olegnax-osc-loader-16'
+        }
+    });
+</script>

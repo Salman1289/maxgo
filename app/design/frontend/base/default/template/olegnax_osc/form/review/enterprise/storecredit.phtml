@@ -1,0 +1,29 @@
+<?php if ($this->canShowCredit()): ?>
+<div id="olegnax-osc-review-enterprise-storecredit">
+    <?php if ($this->creditAvailable()): ?>
+        <div class="enterprise-storecredit-message-container" style="overflow:hidden;height:0px;"></div>
+        <?php
+            $storeCreditBalance = $this->getBalance();
+        ?>
+        <div class="field-row">
+            <input type="checkbox" name="payment[use_customer_balance]" value="1" id="use_customer_balance"<?php echo $this->balanceUsed()?' checked="checked"':'' ?> class="checkbox" />
+            <label for="use_customer_balance">
+                <?php echo Mage::helper('enterprise_customerbalance')->__('Use Store Credit (%s available)', $this->priceFormat($this->getBalance())); ?>
+            </label>
+        </div>
+
+        <script type="text/javascript">
+            var olegnaxOSCReviewEnterpriseStorecredit = new OnestepcheckoutReviewEnterpriseStorecredit({
+                containerSelector: '#olegnax-osc-review-enterprise-storecredit',
+                creditMessageContainerSelector: '.enterprise-storecredit-message-container',
+                storecreditCheckbox: "use_customer_balance",
+                setStorecreditURL: <?php echo Zend_Json::encode($this->applyAjaxUrl());?>,
+                complateMessageBoxClass: 'olegnax-osc-success-msg',
+                crashMessageBoxClass: 'olegnax-osc-error-msg',
+                jsCrashMessage: <?php echo Zend_Json::encode($this->__("Oops something's wrong")); ?>,
+                jsComplateMessage: <?php echo Zend_Json::encode($this->__("Ok")); ?>
+            });
+        </script>
+    <?php endif; ?>
+</div>
+<?php endif; ?>

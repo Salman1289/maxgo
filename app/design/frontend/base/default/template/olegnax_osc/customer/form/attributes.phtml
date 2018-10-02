@@ -1,0 +1,6 @@
+<?php foreach ($this->getUserDefinedAttributes() as $attribute): ?>
+    <?php $attributeContent = $this->getAttributeHtml($attribute); ?>
+    <?php if ($attributeContent): ?>
+        <?php echo $attributeContent;?>
+    <?php endif;?>
+<?php endforeach; ?>

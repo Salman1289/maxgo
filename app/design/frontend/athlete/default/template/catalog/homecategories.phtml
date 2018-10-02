@@ -1,0 +1,29 @@
+<?php
+
+$helper = Mage::helper('catalog/category');
+/** @var $helper Mage_Catalog_Helper_Category */
+
+$topCategories = $helper->getStoreCategories(true);
+?>
+<section class="s-product-main section-strt">
+            <div class="container">
+               <div class="row">
+               	<?php if (!empty($topCategories)): ?>
+               		<?php foreach ($topCategories as $topCategory): ?>
+                  <div class="home-cate">
+                     <div class="main-box-1">
+                        <div class="s-image">
+
+                        	<?php
+                        	$url = Mage::getBaseUrl('media').'catalog/category/'.Mage::getModel('catalog/category')->load($topCategory->getId())->getThumbnail();
+                        	?>
+                           <img src="<?php echo $url; ?>">
+                        </div>
+                        <h3><a href="<?php echo $helper->getCategoryUrl($topCategory); ?>"><?php echo $topCategory->getName(); ?></a></h3>
+                        </div>
+                  </div>
+                     <?php endforeach; ?>
+                  <?php endif; ?>
+               </div>
+            </div>
+         </section>

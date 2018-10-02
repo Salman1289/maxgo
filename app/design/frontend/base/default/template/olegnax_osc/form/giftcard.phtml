@@ -1,0 +1,27 @@
+<?php if ($this->canShip()) : ?>
+
+<?php 
+
+$blockNumber = 25;
+
+$gift1 = $this->helper('giftmessage/message')->isMessagesAvailable();
+$gift2 = $this->getEnterpriseGiftWrappingHtml();
+$gift3 = $this->getChildHtml('extra');
+
+
+ if ($gift1||$gift2||$gift3) {
+
+$blockNumberClass = (!is_null($blockNumber))?"olegnax-osc-icon-{$blockNumber}":"";?>
+<div id="olegnax-osc-gift-card" class="olegnax-osc-block-wrap">
+    <h3 class="olegnax-osc-icon extra <?php echo $blockNumberClass;?>"><?php echo $this->__('Gift Options'); ?></h3>
+    <div class="olegnax-osc-block-content olegnax-osc-add-loader-into-this-block">
+        <?php echo $this->helper('olegnax_osc/message')->getInline('onepage_checkout', $this->getQuote(), $this->getDontDisplayContainer());; ?>
+        <?php echo $gift2; ?>
+        <?php echo $gift3; ?>       
+    </div>
+</div>
+<?php 
+
+ }
+
+endif; ?>

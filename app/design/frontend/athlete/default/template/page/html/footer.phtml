@@ -1,0 +1,42 @@
+<?php echo $this->getChildHtml('athlete_brands'); ?>
+<?php // echo $this->getChildHtml('bottomContainer'); ?>
+<div class="footer-container">
+	<div class="footer row clearfix">
+		<div class="grid_18">
+			<div class="footer-info clearfix">
+				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId(Mage::helper('athlete')->getCfg('footer/cms_block'))->toHtml(); ?>
+			</div>
+			<?php echo $this->getChildHtml('athlete_footer_customer_service');?>
+		</div>
+		<div class="footer-underline">
+		
+               </div>
+	</div>
+	        <div class="appreal-main">
+                 <a href="#" class="apperal">Apperal Configurator</a>
+                 <img class="config-img" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);?>/custom/config-app.png">
+                 
+                 <ul class="social-icons">
+                 
+                     <li  class="facebook"><a><i class="fab fa-facebook-f"></i></a></li>
+                     <li class="twitter"><a ><i class="fab fa-twitter"></i></a></li>
+                     <li class="google"><a ><i class="fab fa-google-plus-g"></i></a></li>
+                     <li class="whatsapp"><a><i class="fab fa-whatsapp"></i></a></li>
+                     <li class="plus"><a><i class="fas fa-plus"></i></a></li>
+                 
+                 </ul>
+                  <h2 class="appreal-messenger"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);?>/custom/messenger.png"></h2>
+             </div>
+
+</div>
+<?php $athleteHelper = Mage::helper('athlete'); ?>
+<?php if (!$athleteHelper->getCfg('footer/copyright_line')): ?>
+<div class="copyright-container">
+	<div class="row clearfix">
+		<div class="grid_18">
+			<div class="cc-icons"><?php echo $this->getChildHtml('athlete_cc_icons');?></div>
+			<address><?php echo $this->getCopyright() ?></address>
+		</div>
+	</div>
+</div>
+<?php endif; ?>

@@ -1,0 +1,174 @@
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+	var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div class="product-view">
+	<div class="product-essential">
+		<form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+			<div class="no-display">
+				<input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+				<input type="hidden" name="related_product" id="related-products-field" value="" />
+			</div>
+
+
+			<div class="product-shop">
+				<div class="product-name">
+					<h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+				</div>
+
+				<?php echo $this->getChildHtml('product_type_data') ?>
+
+				<?php if (!$this->hasOptions()): ?>
+					<div class="add-to-box">
+						<?php if ($_product->isSaleable()): ?>
+							<?php echo $this->getChildHtml('addtocart') ?>
+						<?php endif; ?>
+					</div>
+				<?php endif; ?>
+
+				<?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+					<?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+				<?php endif; ?>
+
+			</div>
+			<div class="clearer"></div>
+			<?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+				<?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+			<?php endif; ?>
+		</form>
+		<script type="text/javascript">
+			//<![CDATA[
+
+
+			/**
+			 * Emulate FormData for some browsers
+			 * MIT License
+			 * (c) 2010 François de Metz
+			 */
+			(function (w) {
+				if (w.FormData)
+					return;
+				function FormData() {
+					this.fake = true;
+					this.boundary = "--------FormData" + Math.random();
+					this._fields = [];
+				}
+				FormData.prototype.append = function (key, value) {
+					this._fields.push([key, value]);
+				}
+				FormData.prototype.toString = function () {
+					var boundary = this.boundary;
+					var body = "";
+					this._fields.forEach(function (field) {
+						body += "--" + boundary + "\r\n";
+						// file upload
+						if (field[1].name) {
+							var file = field[1];
+							body += "Content-Disposition: form-data; name=\"" + field[0] + "\"; filename=\"" + file.name + "\"\r\n";
+							body += "Content-Type: " + file.type + "\r\n\r\n";
+							body += file.getAsBinary() + "\r\n";
+						} else {
+							body += "Content-Disposition: form-data; name=\"" + field[0] + "\";\r\n\r\n";
+							body += field[1] + "\r\n";
+						}
+					});
+					body += "--" + boundary + "--";
+					return body;
+				}
+				w.FormData = FormData;
+			})(window);
+
+
+
+			var productAddToCartForm = new VarienForm('product_addtocart_form');
+			productAddToCartForm.submit = function (button, url) {
+				if (this.validator.validate()) {
+					var form = this.form;
+					var oldUrl = form.action;
+					if (url) {
+						form.action = url;
+					}
+					var e = null;
+					if ($(button).id.indexOf('ec_shortcut') != -1) {
+						try {
+							this.form.submit();
+							return;
+						} catch (e) {
+						}
+					}
+					if (!url) {
+						url = jQuery('#product_addtocart_form').attr('action');
+					}
+					url = url.replace("checkout/cart", "oxajax/cart");
+					url = url.replace("wishlist/index/cart", "oxajax/cart/add");
+					var formData = new FormData();
+					formData.append('isAjax', '1');
+					if ('https:' == document.location.protocol) {
+						url = url.replace('http:', 'https:');
+					}
+					jQuery.fancybox.showActivity();
+					jQuery(form).find(':input').each(function () {
+
+						if (jQuery(this).attr('name')) {
+
+							if (jQuery(this).attr('type') === 'file') {
+
+								formData.append(jQuery(this).attr('name'), jQuery(this)[0].files[0]);
+								return;
+							}
+
+							formData.append(jQuery(this).attr('name'), jQuery(this).attr('value'));
+						}
+					});
+					var opts = {
+						url: url,
+						dataType: 'jsonp',
+						type: 'post',
+						data: formData,
+						cache: false,
+						contentType: false,
+						processData: false,
+						success: function (data) {
+							Olegnax.Ajaxcart.helpers.showMessage(data.message);
+							Olegnax.Ajaxcart.helpers.cartSuccessFunc(data);
+						}
+					};
+					if (formData.fake) {
+						// Make sure no text encoding stuff is done by xhr
+						opts.xhr = function () {
+							var xhr = jQuery.ajaxSettings.xhr();
+							xhr.send = xhr.sendAsBinary;
+							return xhr;
+						}
+						opts.contentType = "multipart/form-data; boundary=" + formData.boundary;
+						opts.data = formData.toString();
+					}
+
+
+					jQuery.ajax(opts);
+					this.form.action = oldUrl;
+					if (e) {
+						throw e;
+					}
+				}
+			}.bind(productAddToCartForm);
+			productAddToCartForm.submitLight = function (button, url) {
+				if (this.validator) {
+					var nv = Validation.methods;
+					delete Validation.methods['required-entry'];
+					delete Validation.methods['validate-one-required'];
+					delete Validation.methods['validate-one-required-by-name'];
+					if (this.validator.validate()) {
+						if (url) {
+							this.form.action = url;
+						}
+						this.form.submit();
+					}
+					Object.extend(Validation.methods, nv);
+				}
+			}.bind(productAddToCartForm);
+			//]]>
+		</script>
+	</div>
+</div>

@@ -1,0 +1,28 @@
+<div id="olegnax-osc-review-enterprise-giftcard">
+    <?php if ($this->canShowGiftCard()): ?>
+        <div class="enterprise-giftcard-message-container" style="overflow:hidden;height:0px;"></div>
+        <div class="enterprise-giftcard-code-form">
+            <label for="enterprise_giftcard_code"><?php echo $this->__('Gift Cards') ?></label>
+            <div class="input-box field-row">
+                <input class="input-text with-buttons" id="enterprise_giftcard_code" name="enterprise_giftcard_code" value="" />
+                <button type="button" class="button" id="olegnax-osc-enterprise-giftcard-apply-btn" onclick="return false;">
+                    <span><span><?php echo $this->__('Add Gift Card'); ?></span></span>
+                </button>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var olegnaxOSCEnterpriseGiftcard = new OnestepcheckoutEnterpriseGiftcard({
+                applyGiftcardButtonSelector: '#olegnax-osc-enterprise-giftcard-apply-btn',
+                cancelGiftcardSelector: 'tr th a',
+                messageContainerSelector: '.enterprise-giftcard-message-container',
+                setGiftcardURL: '<?php echo $this->applyEnterpriseAjaxUrl(); ?>',
+                removeGiftcardUrl: '<?php echo $this->dellEnterpriseAjaxUrl(); ?>',
+                giftcardCode: 'enterprise_giftcard_code',
+                complateMessageBoxClass: 'olegnax-osc-success-msg',
+                crushMessageBoxClass: 'olegnax-osc-error-msg',
+                jsCrashMsg: <?php echo Zend_Json::encode($this->__("Oops something's wrong")); ?>,
+                jsComplateMsg: <?php echo Zend_Json::encode($this->__("Ok")); ?>
+            });
+        </script>
+    <?php endif; ?>
+</div>

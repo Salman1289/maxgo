@@ -1,0 +1,28 @@
+<?xml version="1.0"?> 
+<config>
+    <modules>
+        <Olegnax_CmsPageLayouts>
+            <version>0.1.0</version>
+        </Olegnax_CmsPageLayouts>
+    </modules>
+    <global>
+        <page>
+            <layouts> 
+                <lookbook module="page" translate="label">
+                    <label>Empty with Header</label>
+                    <template>page/empty-with-header.phtml</template>
+                    <layout_handle>lookbook</layout_handle>
+                </lookbook> 
+            </layouts>
+        </page>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <Olegnax_CmsPageLayouts>
+                    <file>Olegnax_CmsPageLayouts.xml</file>
+                </Olegnax_CmsPageLayouts>
+            </updates>
+        </layout>
+    </frontend>
+</config>

@@ -1,0 +1,29 @@
+<?php if ($this->canShowPointsForEnterprise()): ?>
+<div id="olegnax-osc-review-enterprise-points">
+    <?php if ($this->pointsAvailable()): ?>
+        <div class="enterprise-points-message-container" style="overflow:hidden;height:0px;"></div>
+        <?php
+            $summaryForCustomer = $this->getSummary();
+            $pointsLabel = $this->pointsUnitName();
+        ?>
+        <div class="field-row">
+            <input type="checkbox" name="payment[use_reward_points]" value="1" id="use_reward_points"<?php echo $this->useRewardPoints()?' checked="checked"':'' ?> class="checkbox" />
+            <label for="use_reward_points">
+                <?php echo Mage::helper('enterprise_reward')->__('Use my reward points, %s available', Mage::helper('enterprise_reward')->formatReward($this->getSummary(), $this->pointsToMoney())); ?>
+            </label>
+        </div>		
+        <script type="text/javascript">
+            var olegnaxOSCReviewEnterprisePoints = new OnestepcheckoutReviewEnterprisePoints({
+                containerSelector: '#olegnax-osc-review-enterprise-points',
+                pointsMessageContainerSelector: '.enterprise-points-message-container',
+                pointsCheckbox: "use_reward_points",
+                pointsApplyURL: <?php echo Zend_Json::encode($this->getApplyUrl());?>,
+                complateMessageBoxClass: 'olegnax-osc-success-msg',
+                crashMessageBoxClass: 'olegnax-osc-error-msg',
+                jsCrashMessage: <?php echo Zend_Json::encode($this->__("Oops something's wrong")); ?>,
+                jsComplateMessage: <?php echo Zend_Json::encode($this->__("Ok")); ?>
+            });
+        </script>
+    <?php endif; ?>    
+</div>
+<?php endif; ?>

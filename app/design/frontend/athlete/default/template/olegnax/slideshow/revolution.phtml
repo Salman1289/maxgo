@@ -1,0 +1,3 @@
+<?php if($this->isRevoulutionActive() && $alias = $this->revolutionSliderAlias()): ?>
+	<?php echo $this->getLayout()->createBlock('nwdrevslider/revslider')->setAlias($alias)->toHtml(); ?>
+<?php endif; ?>

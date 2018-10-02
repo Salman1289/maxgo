@@ -1,0 +1,427 @@
+<?php if (Mage::getStoreConfig('olegnax_appearance/general_app/page_title_font')) : ?>
+<link href='http://fonts.googleapis.com/css?family=<?php echo Mage::getStoreConfig('olegnax_appearance/general_app/page_title_gfont'); ?>:300,400,600,700,800' rel='stylesheet' type='text/css'>
+<?php endif ?>
+<?php if (Mage::getStoreConfig('olegnax_appearance/title_app/title_font')) : ?>
+<link href='http://fonts.googleapis.com/css?family=<?php echo Mage::getStoreConfig('olegnax_appearance/title_app/title_gfont'); ?>:300,400,600,700,800' rel='stylesheet' type='text/css'>
+<?php endif ?>
+
+<style type="text/css">
+<!--/*--><![CDATA[/*><!--*/
+body.olegnax-osc-index-index .content-container,
+body.olegnax-osc-index-index .col1-layout,
+#olegnax-osc-area.skin { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/general_app/page_background_color'); ?>; }
+
+#olegnax-osc-area.skin .olegnax-osc-block-content,
+#olegnax-osc-area.skin .olegnax-osc-indent, #olegnax-osc-area.responsive-on #olegnax-osc-loginform-container,
+#olegnax-osc-area.skin .olegnax-osc-background,
+#olegnax-osc-area.skin .olegnax-osc-timer,                                  
+#olegnax-osc-area.skin-retro-modern #olegnax-osc-loginform .olegnax-osc-icon-login,
+#olegnax-osc-area.skin-retro-modern #olegnax-osc-loginform .olegnax-osc-indent,
+#olegnax-osc-area.skin-retro-modern .olegnax-osc-popup .olegnax-osc-icon,
+#olegnax-osc-area.skin-athlete .olegnax-osc-popup-container .olegnax-osc-icon,
+#olegnax-osc-area.skin-athlete #olegnax-osc-loginform .olegnax-osc-icon { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_blocks_background_color'); ?>; }
+
+#olegnax-osc-area.skin .olegnax-osc-page-title h2,
+#olegnax-osc-area.skin #olegnax-osc-review-terms-popup ol.nested li.nested:before,
+#olegnax-osc-area.skin #olegnax-osc-review-terms-popup li.nested strong    { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/general_app/page_title_color'); ?>; }
+
+#olegnax-osc-area.skin .olegnax-osc-page-title h2                               { font-size: <?php echo Mage::getStoreConfig('olegnax_appearance/general_app/page_title_fontsize'); ?>px; }
+
+#olegnax-osc-area.skin .olegnax-osc-page-title h2                               { font-weight: <?php echo Mage::getStoreConfig('olegnax_appearance/general_app/page_title_fontweight'); ?>; }
+
+<?php if (Mage::getStoreConfig('olegnax_appearance/general_app/page_title_font')) : ?>
+#olegnax-osc-area.skin .olegnax-osc-page-title h2                               { font-family: '<?php echo Mage::getStoreConfig('olegnax_appearance/general_app/page_title_gfont'); ?>', sans-serif; }
+<?php endif ?>
+#olegnax-osc-area.skin-retro-modern .olegnax-osc-top                { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/general_app/page_title_background_color'); ?>; }
+#olegnax-osc-area.skin .olegnax-osc-icon                                 { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/title_app/title_background_color'); ?>; }
+
+#olegnax-osc-area.skin .olegnax-osc-icon                                 { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/title_app/title_font_color'); ?>; }
+
+#olegnax-osc-area.skin .olegnax-osc-icon                                 { font-size: <?php echo Mage::getStoreConfig('olegnax_appearance/title_app/title_fontsize'); ?>px; }
+
+#olegnax-osc-area.skin .olegnax-osc-icon                                 { font-weight: <?php echo Mage::getStoreConfig('olegnax_appearance/title_app/title_fontweight'); ?>; }
+
+#olegnax-osc-area.skin .olegnax-osc-block-wrap .olegnax-osc-icon         { text-align: <?php echo Mage::getStoreConfig('olegnax_appearance/title_app/title_align'); ?>}
+
+#olegnax-osc-area.skin .olegnax-osc-icon:before {
+//<?php
+
+//switch (Mage::getStoreConfig('olegnax_appearance/title_app/title_icons')) : 	
+//    case 'white':   echo "background-position-y: -20px !important;"; break;
+//    case 'black':   echo "background-position-y: -40px !important;"; break;
+//    case 'colored': echo "background-position-y: 0 !important"; break;
+//    default: echo "display: none;"; break;
+//endswitch
+
+//?>
+
+}
+
+/* test */
+/*  Billing Address, Shipping Address */
+    #olegnax-osc-area #olegnax-osc-address-billing .olegnax-osc-icon:before,
+    #olegnax-osc-area #olegnax-osc-address-shipping .olegnax-osc-icon:before {
+    <?php
+        switch (Mage::getStoreConfig('olegnax_appearance/title_app/title_icons')) : 	
+            case 'white':   echo "background-position:0 -20px !important;"; break;
+            case 'black':   echo "background-position:0 -40px !important;"; break;
+            case 'colored': echo "background-position:0 0 !important;"; break;
+            default: echo "display: none;"; break;
+        endswitch
+    ?>}
+
+/*  Shipping Method */
+    #olegnax-osc-area #olegnax-osc-shipping-method .olegnax-osc-icon:before  {
+    <?php
+        switch (Mage::getStoreConfig('olegnax_appearance/title_app/title_icons')) : 	
+            case 'white':   echo "background-position:-60px -20px !important;"; break;
+            case 'black':   echo "background-position:-60px -40px !important;"; break;
+            case 'colored': echo "background-position:-60px 0 !important;"; break;
+            default: echo "display: none;"; break;
+        endswitch
+    ?>}
+
+/*  Payment Method */
+    #olegnax-osc-area #olegnax-osc-payment-method .olegnax-osc-icon:before   {
+    <?php
+        switch (Mage::getStoreConfig('olegnax_appearance/title_app/title_icons')) : 	
+            case 'white':   echo "background-position:-20px -20px !important;"; break;
+            case 'black':   echo "background-position:-20px -40px !important;"; break;
+            case 'colored': echo "background-position:-20px 0 !important;"; break;
+            default: echo "display: none;"; break;
+        endswitch
+    ?>}      
+
+/*  Order Review */
+    #olegnax-osc-area #olegnax-osc-order-review .olegnax-osc-icon:before             {
+    <?php
+        switch (Mage::getStoreConfig('olegnax_appearance/title_app/title_icons')) : 	
+            case 'white':   echo "background-position:-40px -20px !important;"; break;
+            case 'black':   echo "background-position:-40px -40px !important;"; break;
+            case 'colored': echo "background-position:-40px 0 !important;"; break;
+            default: echo "display: none;"; break;
+        endswitch
+    ?>}
+
+/*  Gift */
+    #olegnax-osc-area #olegnax-osc-gift-card .olegnax-osc-icon:before        {
+    <?php
+        switch (Mage::getStoreConfig('olegnax_appearance/title_app/title_icons')) : 	
+            case 'white':   echo "background-position:-80px -20px !important;"; break;
+            case 'black':   echo "background-position:-80px -40px !important;"; break;
+            case 'colored': echo "background-position:-80px 0 !important;"; break;
+            default: echo "display: none;"; break;
+        endswitch
+    ?>}
+    
+ 
+    #olegnax-osc-area #olegnax-osc-loginform .olegnax-osc-icon-login:before {
+    <?php
+        switch (Mage::getStoreConfig('olegnax_appearance/title_app/title_icons')) : 	
+            case 'white':   echo "background-position:-260px -20px !important;"; break;
+            case 'black':   echo "background-position:-260px -40px !important;"; break;
+            case 'colored': echo "background-position:-260px 0 !important;"; break;
+            default: echo "display: none;"; break;
+        endswitch
+    ?>}
+    
+    #olegnax-osc-area #olegnax-osc-review-terms-popup .olegnax-osc-icon-term:before {
+    <?php
+        switch (Mage::getStoreConfig('olegnax_appearance/title_app/title_icons')) : 	
+            case 'white':   echo "background-position:-240px -20px !important;"; break;
+            case 'black':   echo "background-position:-240px -40px !important;"; break;
+            case 'colored': echo "background-position:-240px 0 !important;"; break;
+            default: echo "display: none;"; break;
+        endswitch
+    ?>}
+    
+
+#olegnax-osc-area .olegnax-osc-btn-close {}
+
+<?php if (Mage::getStoreConfig('olegnax_appearance/title_app/title_icons')=="white") : ?>
+#olegnax-osc-area .olegnax-osc-btn-close, 
+#olegnax-osc-area.skin-retro-modern #olegnax-osc-loginform .olegnax-osc-btn-close { background-position: -175px -15px;}
+<?php endif ?>
+
+<?php if (Mage::getStoreConfig('olegnax_appearance/title_app/title_icon_pos')) : ?>
+/*  Right */
+
+#olegnax-osc-area.skin-clean-default .olegnax-osc-block-wrap .olegnax-osc-icon:before { right:20px;}
+#olegnax-osc-area.skin-retro-modern .olegnax-osc-block-wrap .olegnax-osc-icon:before  { right:20px;}
+#olegnax-osc-area.skin-compact .olegnax-osc-block-wrap .olegnax-osc-icon:before       { right:15px;}
+#olegnax-osc-area.skin-athlete .olegnax-osc-block-wrap .olegnax-osc-icon:before       { right:20px;}
+<?php else : ?>
+/*  Left */
+
+#olegnax-osc-area.skin-clean-default .olegnax-osc-block-wrap .olegnax-osc-icon:before { left:20px;}
+#olegnax-osc-area.skin-retro-modern .olegnax-osc-block-wrap .olegnax-osc-icon:before  { left:20px;}
+#olegnax-osc-area.skin-compact .olegnax-osc-block-wrap .olegnax-osc-icon:before       { left:15px;}
+#olegnax-osc-area.skin-athlete .olegnax-osc-block-wrap .olegnax-osc-icon:before       { left:20px;}
+<?php endif ?>
+
+#olegnax-osc-area.skin .olegnax-osc-block-wrap                             { border: <?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_blocks_border_width'); ?>px solid #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_blocks_border_color'); ?>; }
+
+#olegnax-osc-area.skin input.input-text,
+#olegnax-osc-area.skin select, #olegnax-osc-area.skin textarea,
+#olegnax-osc-area.skin input.radio + label:before,
+#olegnax-osc-area.skin input.checkbox + label:before,
+#olegnax-osc-area.skin-clean-default .qty-wrapper input.qty-editable       { border-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_inputs_border_color'); ?>; }
+
+#olegnax-osc-area.skin dl.sp-methods dt,
+#olegnax-osc-area.skin #olegnax-osc-billing-use-for-shipping,
+#olegnax-osc-area.skin table.gtotals tfoot tr:last-child td strong,
+#olegnax-osc-area.skin #olegnax-osc-gift-card #allow-gift-messages-for-items-container ol > li,
+#olegnax-osc-area.skin table.olegnax-osc-cart-table thead th,
+#olegnax-osc-area.skin table.olegnax-osc-cart-table tbody td,
+#olegnax-osc-area.skin #olegnax-osc-review-coupon                          { border-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_divider_color'); ?>; }
+
+#olegnax-osc-area.skin .olegnax-osc-block-wrap .olegnax-osc-icon:after   { height: <?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_title_border_width'); ?>px; background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_title_divider_color'); ?>; } 
+
+#olegnax-osc-area.skin-athlete .olegnax-osc-block-wrap .olegnax-osc-icon:after { display:none;}
+#olegnax-osc-area.skin-athlete .olegnax-osc-icon { border-top: <?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_title_border_width'); ?>px solid #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_title_divider_color'); ?>;}
+
+
+#olegnax-osc-area.skin,
+#olegnax-osc-area.skin label,
+#olegnax-osc-area.skin label.required:after,
+#olegnax-osc-area.skin span.required:after,
+#olegnax-osc-area.skin table,
+#olegnax-osc-area.skin dl,
+#olegnax-osc-area.skin #olegnax-osc-review-terms-popup li.nested li.nested:before,
+#olegnax-osc-area.skin table.gtotals,
+#olegnax-osc-area.skin table.gtotals tfoot tr td .price,
+#olegnax-osc-area.skin ul.messages ul li,
+#olegnax-osc-area .olegnax-osc-error-msg { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_font_color'); ?>; }
+
+<?php if ((Mage::getStoreConfig('olegnax_appearance/content_app/content_fonts')) && (Mage::getStoreConfig('olegnax_appearance/content_app/content_fonts')!="default")) : ?>
+#olegnax-osc-area.skin,
+#olegnax-osc-area.skin label,
+#olegnax-osc-area.skin button.button,
+/*#olegnax-osc-area.skin input,#olegnax-osc-area.skin select,#olegnax-osc-area.skin textarea,*/
+#olegnax-osc-area.skin label.required:after,
+#olegnax-osc-area.skin span.required:after,
+#olegnax-osc-area.skin table,
+#olegnax-osc-area.skin dl,
+#olegnax-osc-area.skin .price,
+#olegnax-osc-area.skin h3.product-name,
+#olegnax-osc-area.skin .price-box .price-label,
+#olegnax-osc-area.skin ul.messages ul li, 
+#olegnax-osc-area .olegnax-osc-error-msg { font-family: '<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_fonts'); ?>',sans-serif; }
+<?php endif ?>
+
+<?php if (Mage::getStoreConfig('olegnax_appearance/title_app/title_font')) : ?>
+#olegnax-osc-area.skin .olegnax-osc-icon,
+/*#olegnax-osc-area.skin h1, #olegnax-osc-area.skin h2, #olegnax-osc-area.skin h3,*/
+#olegnax-osc-area.skin #olegnax-osc-place-order-button,
+#olegnax-osc-loginform.skin button.button,
+
+#olegnax-osc-area.skin table.gtotals tfoot tr:last-child td strong,
+#olegnax-osc-area.skin table.gtotals tfoot tr:last-child td strong .price,
+
+#olegnax-osc-area.skin-athlete .login-button,
+#olegnax-osc-area.skin-athlete button.button,
+#olegnax-osc-area.skin-athlete #olegnax-osc-review-coupon button.button,
+#olegnax-osc-area.skin #olegnax-osc-related button.button                  { font-family: '<?php echo Mage::getStoreConfig('olegnax_appearance/title_app/title_gfont'); ?>', sans-serif; }
+<?php endif ?>
+
+#olegnax-osc-area.skin,
+#olegnax-osc-area.skin label,
+#olegnax-osc-area.skin label.required:after,
+#olegnax-osc-area.skin span.required:after,
+#olegnax-osc-area.skin table,
+#olegnax-osc-area.skin dl,
+#olegnax-osc-area.skin ul.messages ul li, 
+#olegnax-osc-area .olegnax-osc-error-msg { font-size: <?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_fontsize'); ?>px; }
+
+#olegnax-osc-area.skin a                                                   { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_link_color'); ?>; }
+#olegnax-osc-area.skin a:hover                                             { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_hoverlink_color'); ?>; }
+
+
+#olegnax-osc-area.skin button.button,
+#olegnax-osc-area.skin #olegnax-osc-related button.button,
+#olegnax-osc-area.skin-clean-default .login-button,
+#olegnax-osc-area.skin-retro-modern .login-button, 
+#olegnax-osc-area.skin-athlete .login-button                               { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_button_color'); ?>; }
+ 
+#olegnax-osc-area.skin button.button:hover,
+#olegnax-osc-area.skin .login-button:hover,
+#olegnax-osc-area.skin #olegnax-osc-related button.button:hover,
+#olegnax-osc-area.skin #olegnax-osc-review-coupon button.button:hover,
+#olegnax-osc-area.skin .olegnax-osc-btn-close:hover                        { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_hoverbutton_color'); ?> !important; }
+
+
+#olegnax-osc-area.skin-athlete button.button:hover,
+#olegnax-osc-area.skin-athlete .login-button:hover,
+#olegnax-osc-area.skin-athlete #olegnax-osc-review-coupon button.button:hover,
+#olegnax-osc-area.skin-athlete #olegnax-osc-related button.button:hover    { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_button_color'); ?>; }
+
+#olegnax-osc-area.skin-athlete button.button:after,
+#olegnax-osc-area.skin-athlete .login-button:after,
+#olegnax-osc-area.skin-athlete #olegnax-osc-review-coupon button.button:after  { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_hoverbutton_color'); ?>; }
+
+
+#olegnax-osc-area.skin button.button,
+#olegnax-osc-area.skin .login-button                                       { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_button_text_color'); ?>; }
+
+#olegnax-osc-area.skin-compact .login-button                               { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_button_color'); ?>; }
+
+#olegnax-osc-area.skin button.button:hover,
+#olegnax-osc-area.skin .login-button:hover                                 { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_button_hover_text_color'); ?>; }
+
+
+#olegnax-osc-area.skin .qty-wrapper button.adjust-qty,
+#olegnax-osc-area.skin .btn-remove2                                        { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_qty_button_color'); ?>; }
+
+#olegnax-osc-area.skin-compact .btn-remove2                                { background-color: transparent;}     
+
+#olegnax-osc-area.skin .qty-wrapper button.adjust-qty:hover,
+#olegnax-osc-area.skin .btn-remove2:hover                                  { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_qty_hoverbutton_color'); ?> !important;}
+
+
+
+
+/* Related */
+#olegnax-osc-area.skin #olegnax-osc-related #olegnax-osc-related-block > h2             { font-family: '<?php echo Mage::getStoreConfig('olegnax_appearance/title_app/title_gfont'); ?>', sans-serif; }
+#olegnax-osc-area #olegnax-osc-related-wrapper,
+#olegnax-osc-area.skin #olegnax-osc-related .product-image                              { border-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_divider_color'); ?>;}
+#olegnax-osc-area.skin #olegnax-osc-related .product-image:hover                        { border-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_link_color'); ?>;}
+
+#olegnax-osc-area.skin #olegnax-osc-related .product-details h3.product-name a          { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_font_color'); ?>; }
+#olegnax-osc-area.skin #olegnax-osc-related .product-details h3.product-name a:hover    { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_hoverlink_color'); ?>; }
+
+
+<?php if (Mage::getStoreConfig('olegnax_appearance/content_app/content_button_color_inversion')) : ?>
+/*  White */
+
+#olegnax-osc-area.skin-clean-default .login-button span:before             { background-position: -100px -20px;}
+#olegnax-osc-area.skin-compact .login-button span:before                   { background-position: -100px 0px;}
+
+/*  hover login button for icon */
+#olegnax-osc-area.skin .login-button span:after                            { background-position: -100px -40px;}
+<?php else : ?>
+/*  Black */
+
+#olegnax-osc-area.skin .login-button span:before                           { background-position: -100px -40px;}
+
+/*  hover login button for icon */
+#olegnax-osc-area.skin .login-button span:after                            { background-position: -100px -20px;}
+<?php endif ?>
+
+<?php if (Mage::getStoreConfig('olegnax_appearance/content_app/content_button_style')) : ?>
+/*  Transparent */
+
+#olegnax-osc-area.skin .login-button, 
+#olegnax-osc-area.skin #olegnax-osc-review-coupon button.button,
+#olegnax-osc-area.skin #olegnax-osc-related button.button                       { box-shadow: inset 0 0 0 2px #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_button_color'); ?>; background-color: transparent;}
+
+/*#olegnax-osc-area.skin .login-button span:before                              { background-position: -100px 0px;}*/
+
+#olegnax-osc-area.skin .login-button:hover,
+#olegnax-osc-area.skin #olegnax-osc-review-coupon button.button:hover,
+#olegnax-osc-area.skin #olegnax-osc-related button.button:hover                 { box-shadow: inset 0 0 0 2px #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_hoverbutton_color'); ?>; }
+
+#olegnax-osc-area.skin .qty-wrapper button.adjust-qty,
+#olegnax-osc-area.skin .btn-remove2                                        { box-shadow: inset  0 0 0 1px #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_qty_button_color'); ?>; background-color: transparent;}
+#olegnax-osc-area.skin .qty-wrapper button.adjust-qty:hover,
+#olegnax-osc-area.skin .btn-remove2:hover                                  { box-shadow: inset  0 0 0 1px #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_qty_hoverbutton_color'); ?>; }
+
+#olegnax-osc-area.skin-retro-modern .qty-wrapper button.adjust-qty,
+#olegnax-osc-area.skin-retro-modern .btn-remove2                           { box-shadow: inset  0 0 0 2px #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_qty_button_color'); ?>; background-color: transparent;}
+#olegnax-osc-area.skin-retro-modern .qty-wrapper button.adjust-qty:hover,
+#olegnax-osc-area.skin-retro-modern .btn-remove2:hover                     { box-shadow: inset  0 0 0 2px #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_qty_hoverbutton_color'); ?>; }
+<?php else : ?>
+/*  Filled */
+
+#olegnax-osc-area.skin .login-button                                       { /*test*/ }
+<?php endif ?>
+
+<?php if (Mage::getStoreConfig('olegnax_appearance/content_app/content_qty_button_color_inversion'))
+: ?>
+/*  White */
+
+#olegnax-osc-area.skin .qty-wrapper button.adjust-qty-up                   { background-position: -135px -15px;}
+#olegnax-osc-area.skin .qty-wrapper button.adjust-qty-down                 { background-position: -155px -13px;}
+#olegnax-osc-area.skin .qty-wrapper button.adjust-qty-up:hover             { background-position: -135px 5px;}
+#olegnax-osc-area.skin .qty-wrapper button.adjust-qty-down:hover           { background-position: -155px 7px;}
+
+#olegnax-osc-area.skin-retro-modern .qty-wrapper button.adjust-qty-up                  { background-position: -132px -12px;}
+#olegnax-osc-area.skin-retro-modern .qty-wrapper button.adjust-qty-down                { background-position: -152px -10px;}
+#olegnax-osc-area.skin-retro-modern .qty-wrapper button.adjust-qty-up:hover            { background-position: -132px 8px;}
+#olegnax-osc-area.skin-retro-modern .qty-wrapper button.adjust-qty-down:hover          { background-position: -152px 10px;}
+
+#olegnax-osc-area.skin-athlete .qty-wrapper button.adjust-qty-up                  { background-position: -196px -16px;}
+#olegnax-osc-area.skin-athlete .qty-wrapper button.adjust-qty-down                { background-position: -216px -14px;}
+#olegnax-osc-area.skin-athlete .qty-wrapper button.adjust-qty-up:hover            { background-position: -196px -36px;}
+#olegnax-osc-area.skin-athlete .qty-wrapper button.adjust-qty-down:hover          { background-position: -216px -34px;}
+
+
+#olegnax-osc-area.skin .btn-remove2                                             { background-position: -114px -14px;}
+#olegnax-osc-area.skin .btn-remove2:hover                                       { background-position: -114px 6px;}
+
+#olegnax-osc-area.skin-retro-modern .btn-remove2                                       { background-position: -112px -12px;}
+#olegnax-osc-area.skin-retro-modern .btn-remove2:hover                                 { background-position: -112px 8px;}
+
+#olegnax-osc-area.skin-athlete .btn-remove2                                       { background-position: -175px -15px;}
+#olegnax-osc-area.skin-athlete .btn-remove2:hover                                 { background-position: -175px -35px;}
+<?php else : ?>
+/*  Black */
+#olegnax-osc-area.skin .qty-wrapper button.adjust-qty-up                   { background-position: -135px 5px;}
+#olegnax-osc-area.skin .qty-wrapper button.adjust-qty-down                 { background-position: -155px 7px;}
+#olegnax-osc-area.skin .qty-wrapper button.adjust-qty-up:hover             { background-position: -135px -15px;}
+#olegnax-osc-area.skin .qty-wrapper button.adjust-qty-down:hover           { background-position: -155px -13px;}
+
+#olegnax-osc-area.skin-retro-modern .qty-wrapper button.adjust-qty-up                   { background-position: -132px 8px;}
+#olegnax-osc-area.skin-retro-modern .qty-wrapper button.adjust-qty-down                 { background-position: -152px 10px;}
+#olegnax-osc-area.skin-retro-modern .qty-wrapper button.adjust-qty-up:hover             { background-position: -132px -12px;}
+#olegnax-osc-area.skin-retro-modern .qty-wrapper button.adjust-qty-down:hover           { background-position: -152px -10px;}
+
+#olegnax-osc-area.skin-athlete .qty-wrapper button.adjust-qty-up                  { background-position: -196px -36px;}
+#olegnax-osc-area.skin-athlete .qty-wrapper button.adjust-qty-down                { background-position: -216px -34px;}
+#olegnax-osc-area.skin-athlete .qty-wrapper button.adjust-qty-up:hover            { background-position: -196px -16px;}
+#olegnax-osc-area.skin-athlete .qty-wrapper button.adjust-qty-down:hover          { background-position: -216px -14px;}
+
+#olegnax-osc-area.skin-athlete .btn-remove2                                       { background-position: -175px -35px;}
+#olegnax-osc-area.skin-athlete .btn-remove2:hover                                 { background-position: -175px -15px;}
+<?php endif ?>
+
+#olegnax-osc-area.skin .price                                              { font-size: <?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_price_fontsize'); ?>px; color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_price_color'); ?>;}
+
+#olegnax-osc-area.skin #olegnax-osc-shipping-method  .price   {font-size: <?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_fontsize'); ?>px;}
+
+#olegnax-osc-area.skin table.gtotals tfoot tr.totals-row-discount  td,
+#olegnax-osc-area.skin table.gtotals tfoot tr.totals-row-discount  td .price   { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_discount_price_color'); ?>; }
+#olegnax-osc-area.skin .content_special_price_color                        { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/content_app/content_special_price_color'); ?>; }
+
+#olegnax-osc-area.skin table.gtotals,
+#olegnax-osc-area.skin table.gtotals tfoot tr td .price                    { font-size: <?php echo Mage::getStoreConfig('olegnax_appearance/place_order_app/place_order_fontsize'); ?>px; }
+
+
+#olegnax-osc-area.skin .olegnax-osc-total,
+#olegnax-osc-area.skin #olegnax-osc-order-review-cart-totals .olegnax-osc-background { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/place_order_app/place_order_background_color'); ?>; }
+
+#olegnax-osc-area.skin #olegnax-osc-place-order-button                     { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/place_order_app/place_order_button_color'); ?>; }
+#olegnax-osc-area.skin #olegnax-osc-place-order-button:hover               { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/place_order_app/place_order_button_hover_color'); ?>; }
+
+#olegnax-osc-area.skin-athlete #olegnax-osc-place-order-button:hover       { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/place_order_app/place_order_button_color'); ?>;}
+#olegnax-osc-area.skin-athlete #olegnax-osc-place-order-button:after,
+#olegnax-osc-area.skin-athlete #olegnax-osc-place-order                    { background-color: #<?php echo Mage::getStoreConfig('olegnax_appearance/place_order_app/place_order_button_hover_color'); ?>;}
+
+#olegnax-osc-area.skin #olegnax-osc-place-order-button                     { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/place_order_app/place_order_button_text_color'); ?>; }
+#olegnax-osc-area.skin #olegnax-osc-place-order-button:hover               { color: #<?php echo Mage::getStoreConfig('olegnax_appearance/place_order_app/place_order_button_hover_text_color'); ?>; }
+
+
+#olegnax-osc-area.skin .olegnax-osc-total                             { border: <?php echo Mage::getStoreConfig('olegnax_appearance/place_order_app/place_order_block_border_width'); ?>px solid #<?php echo Mage::getStoreConfig('olegnax_appearance/place_order_app/place_order_block_border_color'); ?>; }
+
+/* Grand Total */
+#olegnax-osc-area.skin table.gtotals tfoot tr:last-child td strong,
+#olegnax-osc-area.skin table.gtotals tfoot tr:last-child td strong .price {
+    color:          #<?php echo Mage::getStoreConfig('olegnax_appearance/place_order_app/place_order_grandtotal_font_color'); ?>;
+    font-size:      <?php echo Mage::getStoreConfig('olegnax_appearance/place_order_app/place_order_grandtotal_fontsize'); ?>px;
+    font-weight:    <?php echo Mage::getStoreConfig('olegnax_appearance/title_app/title_fontweight'); ?>;
+}
+
+<?php if ($customRules = Mage::helper('olegnax_osc/config')->cssCustom()) : ?>
+<?php echo $customRules ?>
+<?php endif ?>
+/*]]>*/-->
+</style>

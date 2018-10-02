@@ -1,0 +1,76 @@
+<?php if ($this->showTerms()): ?>
+<div id="olegnax-osc-review-terms">
+    <ol>
+    <?php foreach($this->getAgreements() as $_a): ?>
+        <li>
+            <input type="checkbox" name="olegnax_osc_agreement[<?php echo $_a->getId();?>]"
+                   id="olegnax-osc-review-terms-agreement-<?php echo $_a->getId();?>"
+                   class="checkbox olegnax-osc-agreement-checkbox-<?php echo $_a->getId();?>" value="1" class="checkbox" />
+            <?php $label = '<a href="javascript:void(0)" title="' . $this->htmlEscape($_a->getCheckboxText()) . '">' .
+                $this->htmlEscape($_a->getCheckboxText()) . '</a>';
+            ?>
+            <label for="olegnax-osc-review-terms-agreement-<?php echo $_a->getId();?>"><?php echo $this->__('I read and agree to %s', $label) ?></label>
+            <div style="display:none" class="olegnax-osc-review-terms-description-container">
+                <?php if ($_a->getIsHtml()):?>
+                    <?php echo $_a->getContent() ?>
+                <?php else:?>
+                    <?php echo nl2br($this->htmlEscape($_a->getContent())) ?>
+                <?php endif; ?>
+            </div>
+        </li>
+        <script type="text/javascript">
+            Validation.add(
+                'olegnax-osc-agreement-checkbox-<?php echo $_a->getId();?>',
+                <?php echo Zend_Json::encode($this->__('You must accept the "%s"', $this->htmlEscape($_a->getCheckboxText()))); ?>,
+                function(v) {
+                    return !Validation.get('IsEmpty').test(v);
+                }
+            );
+        </script>
+    <?php endforeach;?>
+    </ol>
+    <div id="olegnax-osc-review-terms-popup" class="olegnax-osc-popup olegnax-osc-popup-container" style="display:none">
+        <div id="olegnax-osc-review-terms-popup-accept" class="olegnax-osc-popup-title">
+            <div class="olegnax-osc-icon olegnax-osc-icon-term">Terms and Conditions</div>
+            <a class="olegnax-osc-btn-close" href="javascript:void(0)"><?php echo $this->__('Close');?></a>
+        </div>
+        <div class="olegnax-osc-indent">
+            <div class="olegnax-osc-popup-content">
+                <div id="olegnax-osc-review-terms-popup-content">                
+                    <!--  test code  -->                        
+                </div>                        
+            </div>  
+        </div>
+    </div>
+    <div id="olegnax-osc-review-terms-overlay" class="olegnax-osc-popup-overlay" style="display:none"></div>
+</div>
+<script type="text/javascript">
+    var olegnaxOSCReviewTerms = new OnestepcheckoutReviewTerms({
+        containerSelector: "#olegnax-osc-review-terms",
+        itemsSelector: "#olegnax-osc-review-terms ol li",
+        itemLink: "label a",
+        itemCheckbox: "input[type=checkbox]",
+        itemDescription: ".olegnax-osc-review-terms-description-container",
+        popup: {
+            overlaySelector: "#olegnax-osc-review-terms-overlay",
+            containerSelector: "#olegnax-osc-review-terms-popup",
+            contentContainerSelector: "#olegnax-osc-review-terms-popup-content",
+            acceptContainerSelector: "#olegnax-osc-review-terms-popup-accept",
+            buttons: {
+                accept:{
+                    selector: "#olegnax-osc-review-terms-popup-accept button",
+                    enabled: true
+                },
+                close:{
+                    selector: "#olegnax-osc-review-terms-popup-accept a",
+                    enabled: true
+                },
+                close2:{
+                    selector: "#olegnax-osc-popup-accept",
+                    enabled: false
+                }
+            }
+        }
+    });
+</script>
+<?php endif;?>

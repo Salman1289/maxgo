@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <olegnax_osc_index_index>
+        <reference name="head">
+            <action method="addJs"><script>olegnax_osc/payment/ebizmarts_sagepay.js</script></action>
+        </reference>
+    </olegnax_osc_index_index>
+</layout>

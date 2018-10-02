@@ -1,0 +1,28 @@
+<script type="text/javascript">
+    //<![CDATA[
+    function downloadGeoIP() {
+        new Ajax.Request('<?php echo $this->downloadUrl() ?>', {
+            method:     'get',
+            onFailure: function () {
+                alert("<?php echo $this->__('Can not initiate download request. Please try again later.') ?>");
+            },
+            onSuccess: function(transport) {
+                var json = transport.responseText.evalJSON();
+                if (json.success) { 
+                    $('olegnax_osc_geoip_path').value = json.path;
+                    setTimeout(function () {
+                        alert("<?php echo $this->__('Database has been successfully saved.') ?>");
+                    }, 1);
+                } else {
+                    if (json.message)
+                        alert(json.message);
+                    else
+                        alert("<?php echo $this->__('Can not initiate download request. Please try again later.') ?>");
+                }
+            }
+        });
+    }
+    //]]>
+</script>
+ 
+<?php echo $this->buttonHtmlCode() ?>

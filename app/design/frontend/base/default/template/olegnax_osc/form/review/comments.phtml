@@ -1,0 +1,18 @@
+<?php if ($this->showComments()): ?>
+<div id="olegnax-osc-review-comments">    
+    <div id="olegnax-osc-review-comments-simple">
+        <div class="field-row">
+            <div class="input-box">
+                <textarea name="comments" id="comments" placeholder="<?php echo $this->__('Comments') ?>" rows="2"><?php echo $this->htmlEscape($this->getCustomerComments()); ?></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var olegnaxOSCReviewComments = new OnestepcheckoutReviewComments({
+        containerSelector: "#olegnax-osc-review-comments",
+        newRowsCount: 5,
+        saveDataURL: <?php echo Zend_Json::encode($this->saveUrl());?>
+    });
+</script>
+<?php endif;?>

@@ -1,0 +1,40 @@
+.rev_slider_wrapper .tp-leftarrow.default.custom									{	z-index:100;cursor:pointer; position:relative;	background:#000 url('../../../../athlete/default/images/athlete/banners_slider_arrows.png') 0 0 no-repeat;	width:49px;	height:74px;}
+.rev_slider_wrapper .tp-rightarrow.default.custom									{	z-index:100;cursor:pointer; position:relative;	background:#000 url('../../../../athlete/default/images/athlete/banners_slider_arrows.png') 100% 100% no-repeat;	width:49px;	height:74px;}
+.rev_slider_wrapper  .tp-leftarrow.default.custom {left: 10px !important;}
+.rev_slider_wrapper  .tp-rightarrow.default.custom {right: 10px !important;}
+
+.rev_slider_wrapper .tp-leftarrow.custom:hover,
+.rev_slider_wrapper .tp-rightarrow.custom:hover 									{	background-position:bottom left}
+
+
+
+.rev_slider_wrapper .tp-leftarrow.default.custom:hover									{	background-color:#fff; background-position:100% 0; }
+.rev_slider_wrapper .tp-rightarrow.default.custom:hover									{	background-color:#fff; background-position:0 100%; }
+
+.rev_slider_wrapper .tp-leftarrow.default.custom {background-position:100% 0;}
+.rev_slider_wrapper .tp-leftarrow.default.custom:hover {background-position:0 0;}
+.rev_slider_wrapper .tp-rightarrow.default.custom {background-position:0 100%;}
+.rev_slider_wrapper .tp-rightarrow.default.custom:hover {background-position:100% 100%;}
+
+
+.rev_slider_wrapper .tparrows.preview2:after {margin-top:-17px;}
+
+/** Slideshow **/
+.rev_slider_wrapper  .tp-bannertimer {background-color:#ffffff}
+
+
+.rev_slider_wrapper.fullwidthbanner-container .caption {font-family:"Open Sans"}
+.rev_slider_wrapper .tp-bullets.simplebullets.round .bullet:hover,
+.rev_slider_wrapper .tp-bullets.simplebullets.round .bullet.selected {background-color:#c2e124}
+.rev_slider_wrapper .tp-caption.athlete_white_bg_light, .rev_slider_wrapper .tp-caption.athlete_white_bg_medium, .rev_slider_wrapper  .tp-caption.athlete_white_bg_bold {color:#c2e124}
+
+.rev_slider_wrapper .tp-bullets.simplebullets.athlete .bullet, .rev_slider_wrapper .tp-leftarrow.default.custom,.rev_slider_wrapper  .tp-rightarrow.default.custom {background-color:#ffffff}
+.rev_slider_wrapper .tp-bullets.simplebullets.athlete .bullet:hover,
+.rev_slider_wrapper .tp-bullets.simplebullets.athlete .bullet.selected,
+.rev_slider_wrapper .tp-leftarrow.default.custom:hover, .rev_slider_wrapper .tp-rightarrow.default.custom:hover{background-color:#444444}
+.rev_slider_wrapper .slide-title .text {background-color:#000000}
+.rev_slider_wrapper .slide-title .text {color:#ffffff}
+.rev_slider_wrapper .slide-title .link {background-color:#c2e124}
+.rev_slider_wrapper .slide-title .link {color:#000000}
+.rev_slider_wrapper .slide-title .link:hover {background-color:#000000}
+.rev_slider_wrapper .slide-title .link:hover {color:#ffffff}

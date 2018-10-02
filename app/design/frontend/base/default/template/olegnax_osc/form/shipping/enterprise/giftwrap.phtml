@@ -1,0 +1,7 @@
+<script type="text/javascript">
+    var olegnaxOSCShipmentEnterpriseGiftWrap = new OscShipmentEnterpriseGiftwrap({
+        addPrintedCardCheckbox: "add-printed-card-<?php echo $this->getQuote()->getId(); ?>",
+        addGiftOptionsCheckbox: "allow_gift_options",
+        addPrintedCardUrl: <?php echo Zend_Json::encode($this->printedCardUrl());?>
+    });
+</script>

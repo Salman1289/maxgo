@@ -1,0 +1,12 @@
+<script type="text/javascript">
+    //<![CDATA[
+    function resetSectionSettings() {
+        if ( ! confirm("<?php echo $this->__('Are you sure you want to reset ALL settings for this section?') ?>"))
+            return false;
+        
+        window.setLocation('<?php echo $this->resetSettingsUrl() ?>');
+    }
+    //]]>
+</script>
+ 
+<?php echo $this->buttonHtmlCode() ?>

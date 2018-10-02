@@ -1,0 +1,38 @@
+<?php $posts = $this->getPosts(); ?>
+         <section class="gallery-sec section-strt">
+            <div class="container">
+               <div class="gallery-main">
+                  <h2>Customer Gallery</h2>
+                  <p class="gallery-btn">
+                     <span><a href="#" class="imgs-btn">Images</a></span>
+                     <span><a href="#" class=vid-btn>Videos</a></span>
+                  </p>
+               </div>
+               <div class="row">
+               	<?php foreach ($posts as $post): ?>
+
+               		 <?php if ($post->getImage()) : list($width, $height, $type, $attr) = getimagesize(Mage::getBaseUrl('media'). $post->getImage()); ?>
+
+               		<img <?php echo $attr; ?> src="<?php echo Mage::getBaseUrl('media') . $post->getImage(); ?>" <?php echo ($post->getImageRetina() ? 'data-srcX2="'.Mage::getBaseUrl('media') . $post->getImageRetina().'"' : '' ); ?>>
+
+               		 <?php endif; ?>
+
+               		<?php //print_r($post);?>
+                <!--   <div class="col-lg-3 col-md-6 col-sm-6">
+                     <div class="g-top-img">
+                        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>custom/g-img1.png">
+                     </div>
+                     <div class="g-bottom-img">
+                        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA); ?>custom/g-img5.png">
+                     </div>
+                  </div> -->
+                  <?php endforeach; ?>
+               </div>
+              <div class="view-btn">
+                  <span><a>View All</a></span>
+               </div>
+            </div>
+              
+         </section>
+
+<?php //echo $this->getChildHtml('aw_blog_comments_toolbar'); ?>
