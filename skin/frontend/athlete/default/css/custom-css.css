@@ -1038,7 +1038,7 @@ font-family: 'Roboto', sans-serif;
     padding-right: 20px;
     text-align: center;
     font-size: 22px;
-    color: #282828 !important;
+    color: #d71e1e !important;
 }
 .mini-main-content  p{
 color: #484848 !important;
@@ -2203,6 +2203,90 @@ body.blog-post-view .postContent{
     background-color: #d71e1e;
 
 }
+
+/*================= 2018-10-03 ==============*/
+.checkout-onepage-success .main,.checkout-cart-index .main{
+      padding-bottom: 40px!important;
+}
+.checkout-onepage-success h2.sub-title{
+  font-weight: normal;
+}
+.checkout-onepage-success .std{
+font-size: 16px;
+}
+.page-title .checkout-types{
+  display: none;
+}
+.checkout-onepage-success .button span{
+  font-size: 16px;
+}
+.checkout-cart-index .cart-empty .std {
+  font-size: 16px;
+}
+.checkout-cart-index .cart-empty .std h1{
+  display: none;
+}
+.checkout-cart-index .cart-empty .std h2{
+  text-transform: capitalize;
+    letter-spacing: 0.5px;
+    padding-top: 20px;
+    color: #d71e1e;
+}
+.checkout-cart-index .button span{
+  font-size: 16px;
+}
+/*---------------- Order review page ---------------*/
+.paypal-express-review .col-main{
+  padding-bottom: 40px;
+}
+.paypal-express-review .info-set .col-1,.paypal-express-review .info-set .col-2 {
+      -webkit-box-flex: unset;
+    -ms-flex: unset;
+    flex: unset!important;
+     max-width: unset!important; 
+     padding-right: 0px!important;
+     padding-left: 0px!important;
+}
+.paypal-express-review .info-set h2 {
+  font-weight: bold;
+    font-family: 'Lato';
+    font-size: 28px;
+    color: #d71e1e;
+  
+}
+.paypal-express-review .info-set h3{
+      font-size: 20px;
+    letter-spacing: normal;
+    font-family: 'Lato';
+}
+.paypal-express-review .info-set h3 a,.paypal-express-review .info-set h2 a{
+  font-size: 18px;
+  font-weight: normal;
+}
+.paypal-express-review .info-set h3 a:hover,.paypal-express-review .info-set h2 a:hover{
+  background-color: #d71e1e!important;
+}
+.paypal-express-review .info-set .box-content{
+  font-size: 16px;
+    font-family: 'Lato';
+}
+.paypal-express-review .details-table{
+  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.paypal-express-review .agree{
+  font-size: 16px;
+}
+.paypal-express-review #review_button span{
+  font-size: 16px;
+}
+.product-view .product-shop .paypal-logo{
+  display: none;
+} 
+.cart .buttons-set .button{
+  margin-bottom: 12px;
+}
 /*.blog-post-view .commentWrapper span,.commentWrapper p{
   font-family: 'Lato!important';
 }*/
@@ -2237,3 +2321,111 @@ body.blog-post-view .postContent{
 }*/
 
 /*--------------------- end header drop down for languages*/
+
+
+
+/*---------------------------- Customer Css ------------------------------*/
+
+/*----- these are some changes which will make customer panel proper,because customer panel*/
+/*sidebar and content div were comming above and below, this code is use make them left */
+/*and right*/
+.customer-account-index .col2-layout .col-main,.customer-address-index .col2-layout .col-main,
+.sales-order-history .col2-layout .col-main,.sales-billing-agreement-index .col2-layout .col-main,
+.sales-recurring-profile-index .col2-layout .col-main,.review-customer-index .col2-layout .col-main,
+.tag-customer-index .col2-layout .col-main,.wishlist-index-index .col2-layout .col-main,
+.oauth-customer-token-index .col2-layout .col-main,.newsletter-manage-index .col2-layout .col-main,
+.downloadable-customer-products .col2-layout .col-main{
+  width: 70.22%;
+}
+.customer-account-edit .col-main-wrap,.customer-address-index .col-main-wrap,.sales-order-history
+ .col-main-wrap,.sales-billing-agreement-index .col-main-wrap,.sales-recurring-profile-index .col-main-wrap,
+ .review-customer-index .col-main-wrap,.tag-customer-index .col-main-wrap,.wishlist-index-index .col-main-wrap,
+ .oauth-customer-token-index .col-main-wrap,.newsletter-manage-index .col-main-wrap,
+ .downloadable-customer-products .col-main-wrap
+ {
+  width: 80%;
+}
+.customer-account-index .main,.customer-account-edit .main,.customer-address-index .main,
+.sales-order-history .main,.sales-billing-agreement-index .main,.sales-recurring-profile-index .main,
+.wishlist-index-index .main,.oauth-customer-token-index .main,.tag-customer-index .main,.review-customer-index .main,
+.newsletter-manage-index .main,.downloadable-customer-products .main{
+  padding-bottom: 40px!important;
+}
+.customer-account-edit .col2-layout .col-main{
+  width: 72%;
+}
+
+
+/*end for left and right*/
+
+.dashboard h2,.my-account h2{
+      font-size: 24px;
+    color: #d71e1e;
+}
+.dashboard h2,.my-account h2{
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 10px;
+}
+.dashboard h3,.dashboard h4,.my-account h3,.my-account h4{
+   font-size: 20px;
+    color: #d71e1e;
+}
+.dashboard .col-1,.my-account .col-1{
+  /*width: 100%;*/
+  max-width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.dashboard p,.dashboard a,.customer-address-index p,.customer-address-index a{
+  font-size: 16px;
+}
+.dashboard a:hover,.customer-address-index a:hover{
+  background-color: #d71e1e!important;
+}
+.dashboard address,.customer-address-index address{
+  font-size: 16px;
+}
+.dashboard .col-2,.my-account .col-2{
+  max-width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.block.block-wishlist{
+  display: none;
+}
+.sidebar .block-content a{
+  font-size: 16px;
+}
+.block.block-account .current{
+  font-size: 16px;
+  color: #d71e1e!important;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid #e7e7e7;
+  border-top: 1px solid #e7e7e7;
+
+}
+.buttons-set .back-link a{
+  color: #fff;
+}
+.buttons-set .back-link a:hover{
+  background-color: #d71e1e!important;
+  color: #fff;
+}
+.my-account #form-validate .fieldset h2{
+  font-size: 20px;
+
+}
+.my-account #form-validate .fieldset .form-list{
+      margin-top: 30px;
+    font-size: 16px;
+}
+.my-account .form-list input.checkbox, .my-account .form-list label{
+  vertical-align: unset;
+}
+.my-account .button span,.my-account p,.my-account a{
+  font-size: 16px;
+}
+.form-list #payment_method{
+  margin-bottom: 15px;
+}

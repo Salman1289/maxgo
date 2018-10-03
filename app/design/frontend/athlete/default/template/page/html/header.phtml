@@ -32,8 +32,7 @@ $athleteHelper = Mage::helper('athlete');
 $headerCss = 'header-container ' . $athleteHelper->getCfg('header/header_mobile') .' '. $athleteHelper->getCfg('header/header_type');
 $menu_position = $athleteHelper->getCfg('header/menu');
 if (empty($menu_position)) $menu_position = 1;
-?>
-	<div class="<?php echo $headerCss; ?> ">
+?><div class="<?php echo $headerCss; ?> ">
 		<div class="header header-<?php echo $menu_position; ?> row">
 			<div class="grid_18">
 				<div class="table-container">
