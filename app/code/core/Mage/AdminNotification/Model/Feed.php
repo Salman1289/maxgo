@@ -157,9 +157,9 @@ class Mage_AdminNotification_Model_Feed extends Mage_Core_Model_Abstract
     public function getFeedData()
     {
         $curl = new Varien_Http_Adapter_Curl();
-        $curl->setConfig(array(
-            'timeout'   => 2
-        ));
+        // $curl->setConfig(array(
+        //     'timeout'   => 2
+        // ));
         $curl->write(Zend_Http_Client::GET, $this->getFeedUrl(), '1.0');
         $data = $curl->read();
         if ($data === false) {

@@ -101,6 +101,10 @@ jQuery('.top-links .links li').hover(
 
   });
 
+ // to remove the "move to wishlist" colum from the customer panel
+jQuery( "#shopping-cart-table .link-wishlist" ).parent().css( "display", "none" );
+
+
 });
 jQuery(function () {
     jQuery('.sale-feature-products .main-heading a,.gallery-sec .gallery-btn a').on("click", function (e) {

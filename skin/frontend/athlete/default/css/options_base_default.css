@@ -44,18 +44,18 @@ p.back-link a,
 .blog-title h1, .aw-blog-read-more, .postTitle h1,.commentDetails h4.username,
 .blog-date, .postTitle h2,
 .athlete_style_large, .athlete_style_medium, .athlete_style_small,
-.slideshow-container .link { font-family:"Lato", Arial, sans-serif; letter-spacing:-1px;}
+.slideshow-container .link { font-family:"Lato", Arial, sans-serif; letter-spacing:0.2px;}
 
 /* letter spacing -2px */
 	.text-container .text, .block-login .block-title, .title-container h3,
-	.athlete_style_medium { letter-spacing:-2px;}
-	.product-view .price-box-wrap .price-box .price { letter-spacing:-2px;}
+	.athlete_style_medium { letter-spacing:0.2px;}
+	.product-view .price-box-wrap .price-box .price { letter-spacing:0.2px;}
 	
 /* letter spacing -3px */
 
 /* letter spacing -4px */
 	.slide-title .text, .page-title h1, .product-slider-container-big .title-container h3, .product-view .product-category-title h3, .blog-title h1, .postTitle h1,
-	.athlete_style_large { letter-spacing:-4px;}
+	.athlete_style_large { letter-spacing:0.2px;}
 @media only screen and (max-width: 767px) {
 	.slide-title .text, .page-title h1, .product-slider-container-big .title-container h3, .product-view .product-category-title h3, .blog-title h1, .postTitle h1 { letter-spacing:-2px;}
 }
@@ -385,6 +385,7 @@ body, .copyright-container {background-color:#141414}
 	.cloud-zoom-lens  {background-color:rgba(0,0,0, 0.07 ) !important; }
 
 /** Sidebar **/
+	.block a:hover, .block-layered-nav li a:hover, .block-layered-nav li em:hover, .block-layered-nav li.active > a, .block-account li a:hover, .block-tags li a:hover {background-color:#d71e1e}
 	/* inverted buttons */
 /** poll **/
 
@@ -437,7 +438,7 @@ body, .copyright-container {background-color:#141414}
 
 /* product slider - megamenu */
 	.megamenu-block .product-slider-container .title-container .slider-nav a { background-color:#ffffff}
-	.no-touch .megamenu-block .product-slider-container .title-container .slider-nav a:hover { background-color:#000000}
+	.no-touch .megamenu-block .product-slider-container .title-container .slider-nav a:hover { background-color:#ffffff}
 
 /* banner slider */
 	/* banners_slider_home_page */

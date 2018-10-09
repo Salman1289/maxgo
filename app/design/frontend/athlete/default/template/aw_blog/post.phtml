@@ -30,13 +30,24 @@
 			</div>
 		</div>
 		<div class="postContent std">
-			<?php if ($post->getImage() && $post->getImageMain()) : list($width, $height, $type, $attr) = getimagesize(Mage::getBaseUrl('media'). $post->getImage()); ?>
+			<div class="blog-img-wrap">
+					<a class="blog-img-link">
+						<img <?php echo $attr; ?> class="blog-img" src="<?php echo Mage::getBaseUrl('media') . $post->getImage(); ?>" <?php echo ($post->getImageRetina() ? 'data-srcX2="'.Mage::getBaseUrl('media') . $post->getImageRetina().'"' : '' ); ?>>
+					</a>
+				</div>
+
+				<!-- below was the condition which i commented and placed the above simple code for the image, without any condition at post detail page.. -->
+
+			<!-- <?php if ($post->getImage() && $post->getImageMain()) : list($width, $height, $type, $attr) = getimagesize(Mage::getBaseUrl('media'). $post->getImage()); ?>
 				<div class="blog-img-wrap">
 					<a class="blog-img-link">
 						<img <?php echo $attr; ?> class="blog-img" src="<?php echo Mage::getBaseUrl('media') . $post->getImage(); ?>" <?php echo ($post->getImageRetina() ? 'data-srcX2="'.Mage::getBaseUrl('media') . $post->getImageRetina().'"' : '' ); ?>>
 					</a>
 				</div>
-			<?php endif; ?>
+			<?php endif; ?> -->
+
+			<!-- end condition -->
+			
 			 <div class="postDetails">
 					<!-- <div class="tags"><?php echo Mage::getBlockSingleton('blog/blog')->getTagsHtml($post) ?></div> -->
 					<?php $t = strtotime($post->getOrigData('created_time')); ?>

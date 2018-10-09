@@ -153,6 +153,7 @@ p {
 }
 .contact-map-address .m20-top{
   margin-top: 45px!important;
+  padding-left: 40px;
 }
 .contact-sec .contact-map-address .fa{
   color: #eb340a;
@@ -219,9 +220,9 @@ max-width: 1170px!important;
       border-top: none!important;
       background-color: #fff!important;
 }
-.sidebar .block-content a{
+/*.sidebar .block-content a{
    color: #d71e1e!important;
-}
+}*/
 .sidebar .block-content a:hover{
   color: #fff!important;
   background-color: #d71e1e!important;
@@ -688,6 +689,10 @@ display: none!important;
   padding-bottom: 20px;
   border: 1px solid #e7e7e7;
 }
+.account-login .owl-item li .block-content{
+  padding-top: 40px;
+}
+
 .account-login .block-content h2{
   text-align: left;
   margin-left: 56px;
@@ -711,6 +716,10 @@ display: none!important;
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 25px;
+    color: #d71e1e;
+}
+#login-form a.forgot-password:hover{
+  color: #ffffff;
 }
 #login-form button#send2{
     width: 100%;
@@ -776,6 +785,8 @@ display: none!important;
 }
 .s-product-main .home-cate h3 a{
    color: #d71e1e!important;
+   font-weight: normal;
+   text-transform: capitalize;
 }
 .s-product-main .home-cate h3 a:hover{
   background-color: #fff!important;
@@ -818,7 +829,7 @@ display: none!important;
   width: 200px;
   height: 45px;
   line-height: 45px;
-  padding: 12px 30px 12px 30px;
+  padding: 0px 30px 0px 3px;
   background-color: #d71e1e;
   text-align: right;
   font-weight: bold;
@@ -1038,14 +1049,17 @@ font-family: 'Roboto', sans-serif;
     padding-right: 20px;
     text-align: center;
     font-size: 22px;
-    color: #d71e1e !important;
+   
+}
+.mini-main-content .mini-left p{
+   color: #d71e1e !important;
 }
 .mini-main-content  p{
 color: #484848 !important;
     align-content: center;
     padding: 0px;
     font-family: 'Lato', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-style: italic;
   }
 .mini-slider .view-btn{
@@ -1348,12 +1362,16 @@ display: block;
     margin-right: -33.33%;
     padding: 0px 33.33% 0px 33.33%;
     background-color: #000000;
+    clear: both;
 }
 
 /*--------------------------- Home Blog Portion ------------------------*/
 .home-blog-posts{
-  padding-top: 50px;
+  /*padding-top: 50px;*/
   padding-bottom: 50px;
+}
+.home-blog-posts .postWrapper{
+  padding-bottom: 0px;
 }
 .posts-main.grid_18 .one_third{
       margin-right: 1.8%;
@@ -1524,7 +1542,7 @@ width: 74%;
 .appreal-main {
   position: fixed;
     right: 10px;
-    top: 161px;
+    top: 130px;
     z-index: 999;
 }
 .apperal {
@@ -1543,7 +1561,7 @@ width: 74%;
     padding: 14px;
 }
 .apperal:hover{
-  background: transparent!important;
+  /*background: transparent!important;*/
   color:#d71e1e!important; 
 }
 .appreal-main .config-img {
@@ -1806,9 +1824,9 @@ margin-left: 0px;
 }
 
 /*to hide the arrow which leads to top of page*/
-#toTop.icon-white{
+/*#toTop.icon-white{
   display: none!important;
-}
+}*/
 .footer-underline {
     display: inline-block;
     width: 100%;
@@ -2029,6 +2047,7 @@ body.blog-post-view .postContent{
 .post-inner.one_half .blog-img-wrap img {
     max-height: 240px;
     min-height: 240px;
+    width: 365px;
 }
 
 /*======================= blog category page ==================*/
@@ -2095,11 +2114,15 @@ body.blog-post-view .postContent{
   padding-left: 0px;
   padding-right: 10px;
 }*/
-.gallery-sec .view-btn {
+.gallery-sec .view-btn,.home-blog-posts .view-btn{
   text-align: center;
   margin-bottom: 40px;
 }
-.gallery-sec .view-btn span a {
+.home-blog-posts .view-btn{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.gallery-sec .view-btn span a,.home-blog-posts .view-btn span a {
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
   padding: 10px 30px 10px 30px;
@@ -2114,6 +2137,8 @@ body.blog-post-view .postContent{
 }
 .gallery-wrap-div{
   margin-bottom: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .gallery-wrap-div img{
   width: 100%;
@@ -2287,6 +2312,31 @@ font-size: 16px;
 .cart .buttons-set .button{
   margin-bottom: 12px;
 }
+
+
+/*--------------------- Home testimonials -------------------------*/
+.mini-left img.client-img{
+  width: 115px;
+  border-radius: 60px;
+}
+
+
+
+/*---------------------  2018-10-05 QA first ------------------*/
+p.required, .validation-advice{
+      color: #f00;
+    font-weight: 700;
+    font-size: 12px;
+}
+.account-create .block .form-list label{
+  padding-top: 14px;
+}
+.account-create .block  .control label{
+  padding-top: 0px;
+}
+.account-create .form-list li.control .input-box{
+  padding-top: 3px;
+}
 /*.blog-post-view .commentWrapper span,.commentWrapper p{
   font-family: 'Lato!important';
 }*/
@@ -2334,21 +2384,25 @@ font-size: 16px;
 .sales-recurring-profile-index .col2-layout .col-main,.review-customer-index .col2-layout .col-main,
 .tag-customer-index .col2-layout .col-main,.wishlist-index-index .col2-layout .col-main,
 .oauth-customer-token-index .col2-layout .col-main,.newsletter-manage-index .col2-layout .col-main,
-.downloadable-customer-products .col2-layout .col-main{
+.downloadable-customer-products .col2-layout .col-main,.customer-address-form .col2-layout .col-main,
+.wishlist-index-share .col2-layout .col-main{
   width: 70.22%;
 }
 .customer-account-edit .col-main-wrap,.customer-address-index .col-main-wrap,.sales-order-history
  .col-main-wrap,.sales-billing-agreement-index .col-main-wrap,.sales-recurring-profile-index .col-main-wrap,
  .review-customer-index .col-main-wrap,.tag-customer-index .col-main-wrap,.wishlist-index-index .col-main-wrap,
  .oauth-customer-token-index .col-main-wrap,.newsletter-manage-index .col-main-wrap,
- .downloadable-customer-products .col-main-wrap
+ .downloadable-customer-products .col-main-wrap,.customer-address-form .col-main-wrap,
+ .wishlist-index-share .col-main-wrap
  {
   width: 80%;
 }
 .customer-account-index .main,.customer-account-edit .main,.customer-address-index .main,
 .sales-order-history .main,.sales-billing-agreement-index .main,.sales-recurring-profile-index .main,
 .wishlist-index-index .main,.oauth-customer-token-index .main,.tag-customer-index .main,.review-customer-index .main,
-.newsletter-manage-index .main,.downloadable-customer-products .main{
+.newsletter-manage-index .main,.downloadable-customer-products .main,.customer-address-form .main,
+.wishlist-index-share .main,.checkout-multishipping-addresses .main,.checkout-multishipping-address-newshipping .main,
+.blog-post-view .main{
   padding-bottom: 40px!important;
 }
 .customer-account-edit .col2-layout .col-main{
@@ -2419,6 +2473,7 @@ font-size: 16px;
 .my-account #form-validate .fieldset .form-list{
       margin-top: 30px;
     font-size: 16px;
+    
 }
 .my-account .form-list input.checkbox, .my-account .form-list label{
   vertical-align: unset;
@@ -2428,4 +2483,134 @@ font-size: 16px;
 }
 .form-list #payment_method{
   margin-bottom: 15px;
+}
+.home-blog-posts .postWrapper .blog-img-wrap .blog-img-link img{
+  width: 342px;
+  height: 215px;
+}
+
+/*---------------- this change can cause issue,because before that everypage was working fine
+except the category->category page i-e  http://localhost/magento1/index.php/men/shoes/soccer.html
+ ---------------*/
+.col2-left-layout .col-main-wrap{
+  width: 100%;
+}
+.sidebar .currently .block-subtitle{
+      line-height: 24px;
+    text-transform: capitalize;
+    padding-top: 0px;
+}
+.sidebar .block-currently-shopping .actions .btn-clear{
+  display: none;
+}
+.product-options dl dt label{
+  font-size: 16px;
+  text-transform: capitalize;
+}
+a.link-email-friend.icon-white{
+      color: #000;
+}
+.add-review .form-add{
+  width: 100%!important;
+}
+.add-review .form-list label{
+  color: #626261;
+  font-weight: 700;
+}
+.product-view .dedicated-review-box strong,.product-view .dedicated-review-box h3{
+text-transform: capitalize!important;
+letter-spacing: 0.2px!important;
+}
+.cms-page-view h2{
+  text-transform: capitalize;
+}
+.about-pics{
+  padding-bottom: 20px;
+}
+.about-pics .col-lg-6.col-md-6.col-sm-12.col-12{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.product-view .product-essential .price-box-wrap .old-price{
+  padding-right: 25px;
+}
+.product-view .product-category-title{
+  padding-bottom: 0px;
+}
+.contacts-index-index .contact-sec .col-lg-6{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/*To hide the bootom toolbar, ie sort position,view,post per page*/
+.toolbar-bottom .sorter{
+  display: none;
+}
+
+/*------------------- 2018-10-08 ----------------*/
+.block-megamenu-sidebar ul li a{
+  color: #000!important;
+}
+.block-megamenu-sidebar ul li.parent a{
+  color: #d71e1e!important;
+}
+.olegnaxmegamenu-sidebar li em{
+  float: left!important;
+}
+.block-megamenu-sidebar ul li a span:before{
+  display: none!important;
+}
+.olegnaxmegamenu-sidebar .toggle{
+  margin-top: 0px;
+}
+.product-shop .add-to-links a{
+  width: 114px;
+}
+.contact-contacts p{
+      font-size: 16px!important;
+    line-height: 30px!important;
+    color: #000;
+}
+.contact-contacts p a:hover{
+  background-color: transparent!important;
+  color: #d71e1e!important;
+}
+.contact-map{
+  margin-top: 0px;
+}
+.sale-product .price-box .price, .products-grid li.item.hover .product-hover .animate-me .special-price .price{
+  color: #fff!important;
+}
+.product-hover .animate-me .special-price{
+  color: #fff!important;
+}
+
+
+/*----------------------- 2018-10-09 -------------------------*/
+.appreal-main ul.social-icons li{
+    /*background-color: transparent!important;*/
+    /*padding: 0px!important;*/
+}
+.appreal-main .social-icons li a{
+      /*background: blue!important;*/
+      display: block;
+      padding: 13px 0px 13px 0px;
+}
+.appreal-main .social-icons li a.facebook:hover{
+background-color: #0c4877!important;
+}
+.appreal-main .social-icons li a.twitter:hover{
+  background-color: #17a1ce!important;
+}
+.appreal-main .social-icons li a.google:hover{
+ background-color: #941f0d!important;
+}
+.appreal-main .social-icons li a.whatsapp:hover{
+ background-color: #469c53!important;
+}
+.appreal-main .social-icons li a.plus:hover{
+   background-color: #e2432d!important;
+}
+.sidebar.col-right .block-content a{
+  line-height: 20px;
 }

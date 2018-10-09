@@ -44,7 +44,7 @@
 	
 			<action method="addCss"><stylesheet>css/local.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/custom-css.css</stylesheet></action>
-			<action method="addCss"><stylesheet>css/custom-responsive.css</stylesheet></action>
+			
 
 			<action method="addCss"><stylesheet>owl-carousel/owl.carousel.css</stylesheet></action>
 			<action method="addCss"><stylesheet>owl-carousel/owl.theme.css</stylesheet></action>
@@ -52,6 +52,7 @@
 			<action method="addCss"><stylesheet>css/custom.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/animation.css</stylesheet></action>
 			<action ifconfig="athlete/layout/responsive" method="addCss"><stylesheet>css/grid.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/custom-responsive.css</stylesheet></action>
 			<action method="addCss"><stylesheet>css/retina.css</stylesheet></action>
 			<action method="addCss"><stylesheet>font-awesome/css/font-awesome.css</stylesheet></action>
 			<action method="addItem"><type>skin_css</type><name>css/ie.css</name><params/><if>lt IE 9</if></action>
@@ -399,29 +400,25 @@
     <reference name="content">
     	<block type="athlete/brands" name="athlete.brands" as="athlete_brands" template="olegnax/brands_slider.phtml" before="-"/>
 
-        <block type="core/template" name="home-categories" as="home_categories" after="-">
+      <!--   <block type="core/template" name="home-categories" as="home_categories" after="-">
             <action method="setTemplate"><template>catalog/homecategories.phtml</template></action>
-        </block>
-
-        <block type="core/template" name="home-single-banner" as="home_single_banner" after="-">
-            <action method="setTemplate"><template>catalog/homesinglebanner.phtml</template></action>
-        </block>
-
-         <!-- <block type="core/template" name="home-blog" as="home_blog" after="-">
-            <action method="setTemplate"><template>aw_blog/home-posts.phtml</template></action>
         </block> -->
 
-         <block type="core/template" name="home-sale-featured" as="home_sale_feature" after="-">
+        <!-- <block type="core/template" name="home-single-banner" as="home_single_banner" after="-">
+            <action method="setTemplate"><template>catalog/homesinglebanner.phtml</template></action>
+        </block> -->
+
+         <block type="core/template" name="home-sale-featured" as="home_sale_feature" after="blog">
             <action method="setTemplate"><template>catalog/home-sale-featured.phtml</template></action>
         </block>
 
-        <block type="core/template" name="home-posts" as="home_posts" after="-">
+       <!--  <block type="core/template" name="home-posts" as="home_posts" after="-">
             <action method="setTemplate"><template>aw_blog/homeposts.phtml</template></action>
-        </block>
+        </block> -->
 
-        <block type="core/template" name="home-testimonials" as="home_testimonials" after="-">
+       <!--  <block type="core/template" name="home-testimonials" as="home_testimonials" after="-">
             <action method="setTemplate"><template>olegnax/home-testimonials.phtml</template></action>
-        </block>
+        </block> -->
        <!-- <block type="newsletter/subscribe" name="footer.newsletter" as="footerNewsletter"
 			       template="newsletter/newsletter.phtml"/> -->
 			      

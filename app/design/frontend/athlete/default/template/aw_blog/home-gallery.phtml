@@ -24,13 +24,18 @@
                	<?php foreach ($posts as $post): ?>
 
                		<?php $category = $post->Cats;	
+                     // print_r($category[0]);
+                     // print_r($category);exit;
 
-// this is implemented for the posts which have only one category, in future it can be done for 
+// this foreach is used when post have multiple categories and fetch only customer
                		// multiple posts by using loop
-               		$category = $category[0];
+                     foreach ($category as $cate) {
+                        # code...
+                     
+               		// $category = $category[0];
 
                		// print_r($category);
-               		$cate_title = $category['title'];
+               		$cate_title = $cate['title'];
 
                		if($cate_title == 'Customers'){ ?>
 
@@ -44,7 +49,11 @@
                		</div>
 
                	
-               	<?php } ?>
+               	<?php 
+                     }
+
+                  }
+                  ?>
                   <?php endforeach; ?>
                </div>
 
@@ -56,9 +65,11 @@
 
                		<?php $category = $post->Cats;	
 
-               		$category = $category[0];
+                       foreach ($category as $cate) {
+
+               		//$category = $category[0];
                		
-               		$cate_title = $category['title'];
+               		$cate_title = $cate['title'];
 
                		if($cate_title == 'Customers'){
                		//print_r($category[0]);exit;
@@ -87,14 +98,16 @@
 
                		</div>
 
-               	<?php } ?>
+               	<?php }
+               }
+                   ?>
                
                   <?php endforeach; ?>
                </div>
 
 
               <div class="view-btn">
-                  <span><a>View All</a></span>
+                  <span><a href="<?php echo Mage::getBaseUrl(); ?>/blog/">View All</a></span>
                </div>
             </div>
               

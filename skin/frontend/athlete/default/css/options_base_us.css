@@ -436,6 +436,7 @@ body, .copyright-container {background-color:#141414}
 
 /** Sidebar **/
 	.block {border-top-color:#f8f8f8}
+	.block a:hover, .block-layered-nav li a:hover, .block-layered-nav li em:hover, .block-layered-nav li.active > a, .block-account li a:hover, .block-tags li a:hover {background-color:#d71e1e}
 	/* inverted buttons */
 /** poll **/
 

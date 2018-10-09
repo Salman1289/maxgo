@@ -62,8 +62,9 @@
 
 <cms_index_index>
     <reference name="content">
-<block type="blog/blog" name="blog" template="aw_blog/homeblogposts.phtml"></block>
+<block type="blog/blog" name="blog" template="aw_blog/homeblogposts.phtml" ></block>
 <block type="blog/blog" name="blog-gallery" template="aw_blog/home-gallery.phtml"></block>
+<block type="blog/blog" name="testimonials" template="aw_blog/home-testimonials.phtml"></block>
     </reference>
 </cms_index_index>
 

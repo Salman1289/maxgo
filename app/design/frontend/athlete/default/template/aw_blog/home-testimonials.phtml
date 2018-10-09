@@ -1,0 +1,68 @@
+<?php $posts = $this->getPosts(); ?>
+
+  <section class="mini-slider section-strt">
+            <div class="container">
+               <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-6 col-12">
+                     <div class="mini-main">
+                        <h2>Our Customer Says</h2>
+                     </div>
+                  </div>
+               </div>
+
+
+<section class="slider">
+	<div class="demo">
+        <div class="item">            
+            <div class="clearfix">
+                <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
+
+                  <?php foreach ($posts as $post): ?>
+
+                  <?php $category = $post->Cats;  
+
+                   foreach ($category as $cate) {
+
+                    $cate_title = $cate['title'];
+
+                    if($cate_title == 'Testimonials'){ 
+
+                    ?>
+                    <li> 
+                        <div class="mini-main-content">
+                              <div class="mini-left">
+                                <img class="client-img" src="<?php echo Mage::getBaseUrl('media') . $post->getThumb(); ?>" <?php echo ($post->getImageRetina() ? 'data-srcX2="'.Mage::getBaseUrl('media') . $post->getImageRetina().'"' : '' ); ?>>
+                                 <!-- <img src="<?php echo Mage::getBaseUrl('media') ?>/custom/default.png"> -->
+                                 <h2>John Nova</h2>
+                                 <p>(25 june, 2018)</p>
+                              </div>
+                              <p>
+                                <?php echo $post->getPostContent(); ?> 
+                              </p>
+                           </div>
+                         </li>
+                    <?php
+
+                  }    // End if
+                     }   // End second foreach 
+
+                     ?>
+
+                   <?php endforeach; ?>
+                      
+                    
+                </ul>
+            </div>
+        </div>
+       
+
+    </div>	
+ </section>
+               <div class="view-btn">
+                  <span><a>View All</a></span>
+               </div>
+            </div>
+         </section>
+      
+  
+   

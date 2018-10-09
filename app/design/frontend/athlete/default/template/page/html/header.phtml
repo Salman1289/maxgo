@@ -32,7 +32,8 @@ $athleteHelper = Mage::helper('athlete');
 $headerCss = 'header-container ' . $athleteHelper->getCfg('header/header_mobile') .' '. $athleteHelper->getCfg('header/header_type');
 $menu_position = $athleteHelper->getCfg('header/menu');
 if (empty($menu_position)) $menu_position = 1;
-?><div class="<?php echo $headerCss; ?> ">
+?>
+	<div class="<?php echo $headerCss; ?> ">
 		<div class="header header-<?php echo $menu_position; ?> row">
 			<div class="grid_18">
 				<div class="table-container">
@@ -73,7 +74,7 @@ if (empty($menu_position)) $menu_position = 1;
                     <button type="submit" class="toplogin" title="<?php echo $this->__('Sign In') ?>" name="send" id="send2"><?php echo $this->__('Sign In') ?></button>
                      </li>
                           <li><span>or</span></li>
-                          <li><a href="<?php echo Mage::getBaseUrl(); ?>customer/account/" class="create-account">Create Your Account</a></li>
+                          <li><a href="<?php echo Mage::getBaseUrl(); ?>customer/account/create/" class="create-account">Create Your Account</a></li>
                        </ul>
                      
                 
