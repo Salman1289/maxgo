@@ -1,0 +1,293 @@
+<div id="olegnax-osc-address-shipping">
+    <div class="form-list">
+        <?php if ($this->customerHasAddresses()): ?>
+            <div class="olegnax-osc-block-form-field">
+                <label for="shipping-address-select"><?php echo $this->__('Select a shipping address from your address book or enter a new address.') ?></label>
+                <div class="input-box">
+                    <?php echo $this->addressSelect('shipping') ?>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        <?php endif; ?>
+        <div id="olegnax-osc-shipping-address-list"<?php if ($this->customerHasAddresses()): ?> style="overflow: hidden;height: 0px;display:none"<?php endif; ?>>
+
+<?php
+
+			$fields = array();
+
+			ob_start();
+
+?>
+            <div class="customer-name">
+                <?php echo $this->widgetName()->toHtml(); ?>
+                <div style="clear:both"></div>
+            </div><?php
+
+            $fields['customer_name'] = ob_get_contents(); ob_end_clean();
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/street_line1'))
+ 	{
+
+            ob_start();
+
+            $_streetValidationClass = $this->validationClass('street');
+            $_required = $this->validationReq('street');
+
+
+
+
+
+             ?>
+            <?php $streetValues = $this->htmlEscape($this->sessionData('street')); ?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="shipping:street1"<?php if ($_required) echo ' class="required"><em>*</em>'; else echo ">"; ?><?php echo $this->__('Address') ?></label>
+                <div class="input-box">
+                    <input type="text" title="<?php echo $this->__('Street Address') ?>" name="shipping[street][]" id="shipping:street1" class="input-text <?php echo $_streetValidationClass ?>" value="<?php echo (isset($streetValues[0]))? $streetValues[0] : Mage::getStoreConfig('olegnax_osc/address_settings/street_line1');
+
+                     ?>" />
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
+            <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
+                <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                    <div class="input-box">
+                        <input type="text" title="<?php echo $this->__('Street Address %s', $_i) ?>" name="shipping[street][]" id="shipping:street<?php echo $_i ?>" class="input-text <?php echo $_streetValidationClass ?>" value="<?php echo (isset($streetValues[$_i - 1]))? $streetValues[$_i - 1] : '' ;?>" />
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            <?php endfor;
+
+            $fields['street'] = ob_get_contents(); ob_end_clean();
+
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="shipping[street][]" id="shipping:street1" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/street_line1'); ?>" /><?php
+    	$fields['street'] = ob_get_contents(); ob_end_clean();
+    	}
+            ob_start();
+
+            $_required = $this->validationReq('vat_id');
+
+
+            if ($this->vatVisible()) : ?>
+                <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                    <label for="shipping:vat_id"<?php if ($_required) echo ' class="required"><em>*</em'; ?>><?php echo $this->__('VAT Number') ?></label>
+                    <div class="input-box">
+                        <input type="text" id="shipping:vat_id" name="shipping[vat_id]" title="<?php echo $this->__('VAT Number') ?>" class="input-text <?php echo $this->validationClass('vat_id'); ?>" value="<?php echo $this->htmlEscape($this->sessionData('vat_id')); ?>" />
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            <?php endif;
+
+            $fields['vatid'] = ob_get_contents(); ob_end_clean();
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/country'))
+ 	{
+
+            ob_start();
+
+			$_required = $this->validationReq('country');
+
+             ?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="shipping:country_id"<?php echo ' class="required"><em>*</em'; ?>><?php echo $this->__('Country') ?></label>
+                <div class="input-box">
+                    <?php echo $this->countrySelect('shipping') ?>
+                </div>
+                <div style="clear:both;"></div>
+            </div><?php
+
+            $fields['country_id'] = ob_get_contents(); ob_end_clean();
+
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="shipping[country_id]" id="shipping:country_id" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/country_id'); ?>" /><?php
+    	$fields['country_id'] = ob_get_contents(); ob_end_clean();
+    	}
+
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/city'))
+ 	{
+            ob_start();
+
+			$_required = $this->validationReq('city');
+
+?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="shipping:city"<?php if ($_required) echo ' class="required"><em>*</em'; ?>><?php echo $this->__('City') ?></label>
+                <div class="input-box">
+                    <input type="text" title="<?php echo $this->__('City') ?>" name="shipping[city]" class="input-text <?php echo $this->validationClass('city') ?>" id="shipping:city" value="<?php echo $this->htmlEscape($this->sessionData('city')) ?>" />
+                </div>
+                <div style="clear:both;"></div>
+            </div><?php
+
+            $fields['city'] = ob_get_contents(); ob_end_clean();
+
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="shipping[city]" id="shipping:city" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/city'); ?>" /><?php
+    	$fields['city'] = ob_get_contents(); ob_end_clean();
+    	}
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/postcode'))
+ 	{
+            ob_start();
+
+            $_required = $this->validationReq('postcode');
+
+?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="shipping:postcode"<?php if ($_required) echo ' class="required"><em>*</em'; ?>><?php echo $this->__('Zip/Postal Code') ?></label>
+                <div class="input-box">
+                    <input type="text" title="<?php echo $this->__('Zip/Postal Code') ?>" name="shipping[postcode]" id="shipping:postcode" class="input-text validate-zip-international <?php echo $this->validationClass('postcode') ?>" value="<?php echo $this->htmlEscape($this->sessionData('postcode')) ?>" />
+                </div>
+                <div style="clear:both;"></div>
+            </div><?php
+
+            $fields['postcode'] = ob_get_contents(); ob_end_clean();
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="shipping[postcode]" id="shipping:postcode" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/postcode'); ?>" /><?php
+    	$fields['postcode'] = ob_get_contents(); ob_end_clean();
+    	}
+
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/region'))
+ 	{
+            ob_start();
+
+?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="shipping:region_id"><?php echo $this->__('State/Province') ?></label>
+                <div class="input-box">
+                    <select id="shipping:region_id" name="shipping[region_id]" title="<?php echo $this->__('State/Province') ?>" class="validate-select" style="display:none;">
+                        <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
+                    </select>
+                    <input type="text" id="shipping:region" name="shipping[region]" title="<?php echo $this->__('State/Province') ?>" class="input-text <?php echo $this->validationClass('region') ?>" style="display:none;" value="<?php echo $this->htmlEscape($this->sessionData('region')) ?>" />
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        $('shipping:region_id').setAttribute('defaultValue',  "<?php echo $this->sessionData('region_id') ?>");
+                        var shippingRegionUpdater = new RegionUpdater('shipping:country_id', 'shipping:region', 'shipping:region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'shipping:postcode');
+                        //]]>
+                    </script>
+                </div>
+                <div style="clear:both;"></div>
+            </div><?php
+
+            $fields['region_id'] = ob_get_contents(); ob_end_clean();
+
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="shipping[region_id]" id="shipping:region_id" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/region_id'); ?>" /><?php
+    	$fields['region_id'] = ob_get_contents(); ob_end_clean();
+    	}
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/is_telephone'))
+ 	{
+            ob_start();
+            $_required = $this->validationReq('telephone');
+?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="shipping:telephone"<?php if ($_required) echo ' class="required"><em>*</em'; ?>><?php echo $this->__('Telephone') ?></label>
+                <div class="input-box">
+                    <input type="text" name="shipping[telephone]" title="<?php echo $this->__('Telephone') ?>" class="input-text <?php echo $this->validationClass('telephone') ?>" id="shipping:telephone" value="<?php echo $this->htmlEscape($this->sessionData('telephone')) ?>" />
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <?php
+
+           $fields['telephone'] = ob_get_contents(); ob_end_clean();
+     }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="shipping[telephone]" id="shipping:telephone" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/telephone'); ?>" /><?php
+    	$fields['telephone'] = ob_get_contents(); ob_end_clean();
+    	}
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/is_fax'))
+ 	{
+            ob_start();
+            $_required = $this->validationReq('fax');
+            if ($this->getConfig()->isFax()): ?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="shipping:fax"<?php if ($_required) echo ' class="required"><em>*</em'; ?>><?php echo $this->__('Fax') ?></label>
+                <div class="input-box">
+                    <input type="text" name="shipping[fax]" title="<?php echo $this->__('Fax') ?>" class="input-text <?php echo $this->validationClass('fax') ?>" id="shipping:fax" value="<?php echo $this->htmlEscape($this->sessionData('fax')) ?>" />
+                </div>
+            </div>
+            <?php endif;
+
+           $fields['fax'] = ob_get_contents(); ob_end_clean();
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="shipping[fax]" id="shipping:fax" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/fax'); ?>" /><?php
+    	$fields['fax'] = ob_get_contents(); ob_end_clean();
+    	}
+
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/is_company'))
+ 	{
+            ob_start();
+            $_required = $this->validationReq('company');
+            if ($this->getConfig()->isCompany()): ?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="shipping:company"<?php if ($_required) echo ' class="required"><em>*</em'; ?>><?php echo $this->__('Company') ?></label>
+                <div class="input-box">
+                    <input type="text" id="shipping:company" name="shipping[company]" title="<?php echo $this->__('Company') ?>" class="input-text <?php echo $this->validationClass('company') ?>" value="<?php echo $this->htmlEscape($this->sessionData('company')) ?>" />
+                </div>
+            </div>
+            <?php endif;
+
+           $fields['company'] = ob_get_contents(); ob_end_clean();
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="shipping[company]" id="shipping:company" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/company'); ?>" /><?php
+    	$fields['company'] = ob_get_contents(); ob_end_clean();
+    	}
+
+            $kf = array();
+
+			foreach ($fields as $name => $value)
+			{
+				$order = Mage::getStoreConfig('olegnax_osc/sortordering_fields/'.$name);
+				while (isset($kf[$order])) { $order++; }
+
+				$kf[$order] = $value;
+				}
+
+			ksort($kf);
+
+			foreach ($kf as $field) echo $field;
+
+
+			if ($this->isCustomerLoggedIn() && $this->customerHasAddresses()):?>
+                <div class="olegnax-osc-block-form-field">
+                    <div class="control">
+                        <input type="checkbox" name="shipping[save_in_address_book]" value="1" title="<?php echo $this->__('Save in address book') ?>" id="shipping:save_in_address_book"<?php if ($this->sessionData('save_in_address_book')):?> checked="checked"<?php endif; ?> class="checkbox" />
+                        <label for="shipping:save_in_address_book"><?php echo $this->__('Save in address book') ?></label>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            <?php else:?>
+                <div class="no-display"><input type="hidden" name="shipping[save_in_address_book]" value="1" /></div>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php echo $this->getChildHtml('extra');?>
+</div>

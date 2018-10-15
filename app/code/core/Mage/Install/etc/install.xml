@@ -80,7 +80,10 @@
                 <spl/>
                 <dom/>
                 <simplexml/>
-                <mcrypt/>
+                <mcrypt>
+                    <openssl/>
+                    <mcrypt/>
+                </mcrypt>
                 <hash/>
                 <curl/>
                 <iconv/>

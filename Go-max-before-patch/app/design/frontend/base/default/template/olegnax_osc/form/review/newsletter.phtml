@@ -1,0 +1,15 @@
+<?php if ($this->showNewsletter()): ?> 
+        <?php if ($this->canShowSimpleNewsletter()): ?>
+        <div id="olegnax-osc-review-newsletter-simple">
+            <input type="checkbox" name="is_subscribed" id="newsletter_simple" value="1" title="<?php echo $this->__('Sign up for Newsletter') ?>" class="checkbox"<?php if ($this->getIsSubscribed()): ?> checked="checked"<?php endif; ?> />
+            <label for="newsletter_simple"><?php echo $this->__('Sign up for Newsletter') ?></label>
+        </div>
+        <script type="text/javascript">
+            var olegnaxOSCReviewNewsletter = new OnestepcheckoutReviewNewsletter({
+                containerSelector: "#olegnax-osc-review-newsletter-simple",
+                generalInputSelector: "#olegnax-osc-review-newsletter-simple input",
+                saveValuesUrl: <?php echo Zend_Json::encode($this->saveValuesUrl());?>
+            });
+        </script>
+        <?php endif;?>
+<?php endif;?>

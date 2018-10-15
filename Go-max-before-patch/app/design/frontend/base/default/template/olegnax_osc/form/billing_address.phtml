@@ -1,0 +1,8 @@
+<div id="olegnax-osc-address-billing" class="olegnax-osc-block-wrap">
+    <?php $blockNumber = $this->getBlockNumber();?>
+    <?php $blockNumberClass = (!is_null($blockNumber))?"olegnax-osc-icon-{$blockNumber}":"";?>
+    <h3 class="olegnax-osc-icon <?php echo $blockNumberClass;?>"><?php echo $this->__('Billing Address'); ?></h3>
+    <div class="olegnax-osc-block-content">
+        <?php echo $this->getChildHtml('billing'); ?>
+    </div>
+</div>

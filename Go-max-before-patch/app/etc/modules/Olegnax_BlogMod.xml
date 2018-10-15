@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Olegnax_BlogMod>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <AW_Blog />
+            </depends>
+        </Olegnax_BlogMod>
+    </modules>
+</config> 

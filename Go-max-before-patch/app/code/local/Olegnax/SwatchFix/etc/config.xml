@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Olegnax_SwatchFix>
+			<version>1.0.0</version>
+		</Olegnax_SwatchFix>
+	</modules>
+	<global>
+		<blocks>
+            <checkout>
+                <rewrite>
+                    <cart_item_renderer_configurable>Olegnax_SwatchFix_Block_Checkout_Cart_Item_Renderer_Configurable</cart_item_renderer_configurable>
+                </rewrite>
+            </checkout>
+		</blocks>
+	</global>
+</config>

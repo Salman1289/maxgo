@@ -1,0 +1,406 @@
+<div id="olegnax-osc-address-billing">
+    <div class="form-list">
+        <?php if ($this->customerHasAddresses()): ?>
+            <div class="olegnax-osc-block-form-field">
+                <label for="billing-address-select"><?php echo $this->__('Select a billing address from your address book or enter a new address.') ?></label>
+                <div class="input-box">
+                    <?php echo $this->addressSelect('billing') ?>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        <?php endif; ?>
+        <div id="olegnax-osc-billing-address-list"<?php if ($this->customerHasAddresses()): ?> style="overflow: hidden;height: 0px;display:none"<?php endif; ?>>
+
+<?php
+
+			$fields = array();
+
+			ob_start();
+
+?>
+            <div class="customer-name">
+                <?php echo $this->widgetName()->toHtml(); ?>
+                <div style="clear:both"></div>
+            </div><?php
+
+            $fields['customer_name'] = ob_get_contents(); ob_end_clean();
+
+            if(!$this->isCustomerLoggedIn()):
+
+			ob_start();
+
+?>
+                <?php $_dateOfBirthWidget = $this->dateOfBirthWidget(); ?>
+                <?php if ($_dateOfBirthWidget->isEnabled()): ?>
+                    <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                        <?php echo $_dateOfBirthWidget->toHtml() ?>
+                        <div style="clear:both;"></div>
+                    </div>
+                <?php endif;
+
+			$fields['dob'] = ob_get_contents(); ob_end_clean();
+
+			ob_start();
+
+?>
+                <?php $_genderWidget = $this->genderWidget(); ?>
+                <?php if ($_genderWidget->isEnabled()): ?>
+                    <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                        <?php echo $_genderWidget->toHtml() ?>
+                        <div style="clear:both;"></div>
+                    </div>
+                <?php endif;
+
+			$fields['gender'] = ob_get_contents(); ob_end_clean();
+
+			ob_start();
+
+                if ($this->taxvatEnabled()): ?>
+                    <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                        <?php echo $this->taxvatWidget() ?>
+                        <div style="clear:both;"></div>
+                    </div>
+                <?php endif;
+
+			$fields['taxvat'] = ob_get_contents(); ob_end_clean();
+
+                ?>
+            <?php endif;
+
+
+
+
+
+            if (!$this->isCustomerLoggedIn()) :
+
+            ob_start();
+
+            ?>
+                <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                    <label for="billing:email" class="required"><em>*</em><?php echo $this->__('Email') ?></label>
+                    <div class="input-box">
+                        <input type="text" name="billing[email]" id="billing:email" title="<?php echo $this->__('Email') ?>" class="input-text validate-email required-entry" value="<?php echo $this->htmlEscape($this->sessionData('email')); ?>" />
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+                
+            <?php
+
+            $fields['email'] = ob_get_contents(); ob_end_clean();
+
+            endif;
+
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/street_line1'))
+ 	{
+
+            ob_start();
+
+            $_streetValidationClass = $this->validationAttributeClass('street');
+            $_required = $this->validationAttributeReq('street');
+
+
+
+
+
+             ?>
+            <?php $streetValues = $this->htmlEscape($this->sessionData('street')); ?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="billing:street1"<?php if ($_required) echo ' class="required"><em>*</em>'; else echo ">"; ?><?php echo $this->__('Address') ?></label>
+                <div class="input-box">
+                    <input type="text" title="<?php echo $this->__('Street Address') ?>" name="billing[street][]" id="billing:street1" class="input-text <?php echo $_streetValidationClass ?>" value="<?php echo isset($streetValues[0])? $streetValues[0] : ''; ?>" />
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
+            <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
+                
+                <div class="input-box input-box-2">
+                    <input type="text" title="<?php echo $this->__('Street Address %s', $_i) ?>" name="billing[street][]" id="billing:street<?php echo $_i ?>" class="input-text <?php echo $_streetValidationClass ?>" value="<?php echo (isset($streetValues[$_i - 1]))? $streetValues[$_i - 1] : '' ;?>" />
+                </div>
+                    
+            <?php endfor;
+
+            $fields['street'] = ob_get_contents(); ob_end_clean();
+
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="billing[street][]" id="billing:street1" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/street_line1'); ?>" /><?php
+    	$fields['street'] = ob_get_contents(); ob_end_clean();
+    	}
+            ob_start();
+
+            $_required = $this->validationAttributeReq('vat_id');
+
+
+            if ($this->vatVisible()) : ?>
+                <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                    <label for="billing:vat_id"<?php if ($_required) echo ' class="required"><em>*</em'; ?>><?php echo $this->__('VAT Number') ?></label>
+                    <div class="input-box">
+                        <input type="text" id="billing:vat_id" name="billing[vat_id]" title="<?php echo $this->__('VAT Number') ?>" class="input-text <?php echo $this->validationAttributeClass('vat_id'); ?>" value="<?php echo $this->htmlEscape($this->sessionData('vat_id')); ?>" />
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            <?php endif;
+
+            $fields['vatid'] = ob_get_contents(); ob_end_clean();
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/country'))
+ 	{
+
+            ob_start();
+
+			$_required = $this->validationAttributeReq('country');
+
+             ?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="billing:country_id"<?php echo ' class="required"><em>*</em'; ?>><?php echo $this->__('Country') ?></label>
+                <div class="input-box">
+                    <?php echo $this->countrySelect('billing') ?>
+                </div>
+                <div style="clear:both;"></div>
+            </div><?php
+
+            $fields['country_id'] = ob_get_contents(); ob_end_clean();
+
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="billing[country_id]" id="billing:country_id" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/country_id'); ?>" /><?php
+    	$fields['country_id'] = ob_get_contents(); ob_end_clean();
+    	}
+
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/city'))
+ 	{
+            ob_start();
+
+			$_required = $this->validationAttributeReq('city');
+
+?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="billing:city"<?php if ($_required) echo ' class="required"><em>*</em'; ?>><?php echo $this->__('City') ?></label>
+                <div class="input-box">
+                    <input type="text" title="<?php echo $this->__('City') ?>" name="billing[city]" class="input-text <?php echo $this->validationAttributeClass('city') ?>" id="billing:city" value="<?php echo $this->htmlEscape($this->sessionData('city')); ?>" />
+                </div>
+                <div style="clear:both;"></div>
+            </div><?php
+
+            $fields['city'] = ob_get_contents(); ob_end_clean();
+
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="billing[city]" id="billing:city" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/city'); ?>" /><?php
+    	$fields['city'] = ob_get_contents(); ob_end_clean();
+    	}
+
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/postcode'))
+ 	{
+            ob_start();
+
+            $_required = $this->validationAttributeReq('postcode');
+
+?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="billing:postcode"<?php if ($_required) echo ' class="required"><em>*</em'; ?>><?php echo $this->__('Zip/Postal Code') ?></label>
+                <div class="input-box">
+                    <input type="text" title="<?php echo $this->__('Zip/Postal Code') ?>" name="billing[postcode]" id="billing:postcode" class="input-text validate-zip-international <?php echo $this->validationAttributeClass('postcode') ?>" value="<?php echo $this->htmlEscape($this->sessionData('postcode')) ?>" />
+                </div>
+                <div style="clear:both;"></div>
+            </div><?php
+
+            $fields['postcode'] = ob_get_contents(); ob_end_clean();
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="billing[postcode]" id="billing:postcode" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/postcode'); ?>" /><?php
+    	$fields['postcode'] = ob_get_contents(); ob_end_clean();
+    	}
+
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/region'))
+ 	{
+            ob_start();
+
+?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="billing:region_id"><?php echo $this->__('State/Province') ?></label>
+                <div class="input-box">
+                    <select id="billing:region_id" name="billing[region_id]" title="<?php echo $this->__('State/Province') ?>" class="validate-select" style="display:none;">
+                        <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
+                    </select>
+                    <input type="text" id="billing:region" name="billing[region]" title="<?php echo $this->__('State/Province') ?>" class="input-text <?php echo $this->validationAttributeClass('region') ?>" style="display:none;" value="<?php echo $this->sessionData('region_id') ?>" />
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        $('billing:region_id').setAttribute('defaultValue',  "<?php echo $this->sessionData('region_id') ?>");
+                        var billingRegionUpdater = new RegionUpdater('billing:country_id', 'billing:region', 'billing:region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'billing:postcode');
+                        //]]>
+                    </script>
+                </div>
+                <div style="clear:both;"></div>
+            </div><?php
+
+            $fields['region_id'] = ob_get_contents(); ob_end_clean();
+
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="billing[region_id]" id="billing:region_id" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/region_id'); ?>" /><?php
+    	$fields['region_id'] = ob_get_contents(); ob_end_clean();
+    	}
+
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/is_telephone'))
+ 	{
+            ob_start();
+            $_required = $this->validationAttributeReq('telephone');
+?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="billing:telephone"<?php if ($_required) echo ' class="required"><em>*</em'; ?>><?php echo $this->__('Telephone') ?></label>
+                <div class="input-box">
+                    <input type="text" name="billing[telephone]" title="<?php echo $this->__('Telephone') ?>" class="input-text <?php echo $this->validationAttributeClass('telephone') ?>" id="billing:telephone" value="<?php echo $this->htmlEscape($this->sessionData('telephone')) ?>" />
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <?php
+
+           $fields['telephone'] = ob_get_contents(); ob_end_clean();
+     }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="billing[telephone]" id="billing:telephone" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/telephone'); ?>" /><?php
+    	$fields['telephone'] = ob_get_contents(); ob_end_clean();
+    	}
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/is_fax'))
+ 	{
+            ob_start();
+            $_required = $this->validationAttributeReq('fax');
+            if ($this->getConfig()->isFax()): ?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="billing:fax"<?php if ($_required) echo ' class="required"><em>*</em'; ?>><?php echo $this->__('Fax') ?></label>
+                <div class="input-box">
+                    <input type="text" name="billing[fax]" title="<?php echo $this->__('Fax') ?>" class="input-text <?php echo $this->validationAttributeClass('fax') ?>" id="billing:fax" value="<?php echo $this->htmlEscape($this->sessionData('fax')); ?>" />
+                </div>
+            </div>
+            <?php endif;
+
+           $fields['fax'] = ob_get_contents(); ob_end_clean();
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="billing[fax]" id="billing:fax" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/fax'); ?>" /><?php
+    	$fields['fax'] = ob_get_contents(); ob_end_clean();
+    	}
+
+
+ 	if (Mage::getStoreConfig('olegnax_osc/exclude_include_fields/is_company'))
+ 	{
+            ob_start();
+
+            $_required = $this->validationAttributeReq('company');
+
+            if ($this->getConfig()->isCompany()): ?>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-wide">
+                <label for="billing:company"<?php if ($_required) echo ' class="required"><em>*</em'; ?>><?php echo $this->__('Company') ?></label>
+                <div class="input-box">
+                    <input type="text" id="billing:company" name="billing[company]" title="<?php echo $this->__('Company') ?>" class="input-text <?php echo $this->validationAttributeClass('company') ?>" value="<?php
+					if ($this->sessionData('company')) echo $this->htmlEscape($this->sessionData('company'));
+                    else echo Mage::getStoreConfig('olegnax_osc/address_settings/company');  ?>" />
+                </div>
+            </div>
+            <?php endif;
+
+           $fields['company'] = ob_get_contents(); ob_end_clean();
+    }
+    else
+    {
+    	ob_start();
+?>    	<input type="hidden" name="billing[company]" id="billing:company" value="<?php echo Mage::getStoreConfig('olegnax_osc/address_settings/company'); ?>" /><?php
+    	$fields['company'] = ob_get_contents(); ob_end_clean();
+    	}
+
+            $kf = array();
+
+			foreach ($fields as $name => $value)
+			{
+				$order = Mage::getStoreConfig('olegnax_osc/sortordering_fields/'.$name);
+				while (isset($kf[$order])) { $order++; }
+
+				$kf[$order] = $value;
+				}
+
+			ksort($kf);
+
+			foreach ($kf as $field) echo $field;
+
+
+			if ($this->isCustomerLoggedIn() && $this->customerHasAddresses()):?>
+                <div class="olegnax-osc-block-form-field">
+                    <div class="control">
+                        <input type="checkbox" name="billing[save_in_address_book]" value="1" title="<?php echo $this->__('Save in address book') ?>" id="billing:save_in_address_book" onchange="if(window.shipping) shipping.setSameAsBilling(false);"<?php if ($this->sessionData('save_in_address_book')):?> checked="checked"<?php endif; ?> class="checkbox" />
+                        <label for="billing:save_in_address_book"><?php echo $this->__('Save in address book') ?></label>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+            <?php else:?>
+                <div class="no-display"><input type="hidden" name="billing[save_in_address_book]" value="1" /></div>
+            <?php endif; ?>
+        </div>
+        
+        
+        <div class="olegnax-osc-block-form-field">
+            <div class="control">
+                <?php if ($this->canShowCreateAnAccount()): ?>
+                <input type="checkbox" name="billing[create_account]" value="1" title="<?php echo $this->__('Create an account for later use') ?>" id="billing:create_account" class="checkbox"<?php if ($this->sessionData('create_account')):?> checked="checked"<?php endif; ?>/><label for="billing:create_account"><?php echo $this->__('Create an account for later use') ?></label>
+                <?php else: ?>
+                    <input type="hidden" name="billing[create_account]" value="1" id="billing:create_account" />
+                <?php endif ?>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <div style="clear:both"></div>
+        <div id="olegnax-osc-billing-password-area" style="overflow: hidden;<?php if (!$this->sessionData('create_account') && $this->registeredReq()):?>height: 0px;display:none<?php endif; ?>">
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-left">
+                <label for="billing:customer_password" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+                <div class="input-box">
+                    <input type="password" name="billing[customer_password]" id="billing:customer_password" title="<?php echo $this->__('Password') ?>" class="input-text required-entry validate-password" />
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <div class="olegnax-osc-block-form-field olegnax-osc-block-form-field-right">
+                <label for="billing:confirm_password" class="required"><em>*</em><?php echo $this->__('Confirm Password') ?></label>
+                <div class="input-box">
+                    <input type="password" name="billing[confirm_password]" title="<?php echo $this->__('Confirm Password') ?>" id="billing:confirm_password" class="input-text required-entry validate-cpassword" />
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <div style="clear:both"></div>
+        </div>           
+          
+        <?php
+
+        if (!$this->billingForShipping() && $this->canShip()): ?>
+            <div id="olegnax-osc-billing-use-for-shipping" class="olegnax-osc-block-form-field">
+                <div class="control">
+                    <input type="checkbox" name="billing[use_for_shipping]" value="1" title="<?php echo $this->__('Use same address for shipping') ?>" id="billing:use_for_shipping" <?php if ($this->billingForShippingChecked()):?> checked="checked"<?php endif; ?> class="checkbox" />
+                    <label for="billing:use_for_shipping"><?php echo $this->__('Use same address for shipping') ?></label>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        <?php else : ?>
+            <div class="no-display"><input type="hidden" name="billing[use_for_shipping]" value="1" /></div>
+        <?php endif; ?>
+    </div>
+    <?php echo $this->getChildHtml('extra');?>
+</div>

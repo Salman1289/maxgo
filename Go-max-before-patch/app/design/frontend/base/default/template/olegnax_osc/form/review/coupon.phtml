@@ -1,0 +1,32 @@
+<?php if ($this->canShowCoupon()): ?>   
+    <div class="coupon-message-container" style="overflow:hidden;height:0px;"></div>
+    <div class="coupon-code-form">
+        <div class="input-box field-row">
+            <?php if ($this->getConfig()->isCouponsButtonEnabled()) : ?>
+                <button type="button" class="button" id="olegnax-osc-coupon-code-apply-btn" onclick="return false;"<?php if ($this->getCouponCode()) : ?> style="display:none;"<?php endif; ?>>
+                    <?php echo $this->__('Apply Coupon'); ?>
+                </button>
+                <button type="button" class="button" id="olegnax-osc-coupon-code-cancel-btn" onclick="return false;"<?php if (!$this->getCouponCode()) : ?> style="display:none;"<?php endif; ?>>
+                    <?php echo $this->__('Cancel Coupon'); ?>
+                </button>
+            <?php endif; ?>
+            <div class="overflow-wide"><input class="input-text<?php if ($this->getConfig()->isCouponsButtonEnabled()) : ?> with-buttons<?php endif; ?>" id="coupon_code" name="coupon_code" placeholder="<?php echo $this->__('Enter coupon code') ?>" value="<?php echo $this->htmlEscape($this->getCouponCode()); ?>" /></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var olegnaxOSCReviewCoupon = new OnestepcheckoutReviewCoupon({
+            couponApplied: <?php echo ($this->getCouponCode()) ? 'true' : 'false'; ?>,
+            isApplyCouponButton: <?php echo ($this->getConfig()->isCouponsButtonEnabled()) ? 'true' : 'false'; ?>,
+            applyCouponButtonSelector: '#olegnax-osc-coupon-code-apply-btn',
+            cancelCouponButtonSelector: '#olegnax-osc-coupon-code-cancel-btn',
+            messageContainerSelector: '.coupon-message-container',
+            couponApplyURL: '<?php echo $this->confirmCouponUrl(); ?>',
+            cancelCouponUrl: '<?php echo $this->cancelCouponUrl(); ?>',
+            couponCode: 'coupon_code',
+            complateMessageBoxClass: 'olegnax-osc-success-msg',
+            crashMessageBoxClass: 'olegnax-osc-error-msg',
+            jsCrashMessage: <?php echo Zend_Json::encode($this->__("Oops something's wrong")); ?>,
+            jsComplateMessage: <?php echo Zend_Json::encode($this->__("Ok")); ?>
+        });
+    </script>
+<?php endif; ?>

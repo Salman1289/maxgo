@@ -1,0 +1,31 @@
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Olegnax_Megamenu_Block_Megamenu
+ */
+
+$menuHelper = $this->helper('olegnaxmegamenu');
+if ( $menuHelper->getCfg('general/status') ) :
+
+	$_menu = $this->getHtml('level-top', 'megamenu-dropdown');
+	?>
+	<?php if ($_menu): ?>
+	<div class="nav-container olegnaxmegamenu icons-<?php echo Mage::helper('athlete')->getAppearanceCfg('navigation/sub_nav_icons'); ?>">
+		<div class="nav-top-title"><div class="icon"><span></span><span></span><span></span></div><a href="#"><?php echo $this->__('Navigation'); ?></a></div>
+		<ul id="nav">
+			<?php if ($menuHelper->getCfg('additional/home')) : ?>
+				<li class="level0 level-top home-block">
+					<a href="<?php echo $this->getBaseUrl(); ?>"><span><?php echo $this->__('Home'); ?></span></a>
+				</li>
+			<?php endif; ?>
+			<?php echo $_menu; ?>
+			
+
+			
+
+		</ul>
+		
+	</div>
+<?php endif ?>
+<?php endif; //if ( $menuHelper->getCfg('general/status') ) : ?>

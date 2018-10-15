@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <olegnax_osc_index_index translate="label">
+        <update handle="MAP_popup" />
+        <label>Olegnax Osc</label>
+        <remove name="left"/>
+        <remove name="right"/>
+
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="head">            
+            <action method="addJs"><script>olegnax_osc/osc_main.js</script></action>
+            <action method="addJs"><script>olegnax_osc/osc_form.js</script></action>            
+
+            <action method="addItem"><type>skin_css</type><name>olegnax_osc/css/style.css</name></action>                             
+            
+            <action method="addItem"><type>js_css</type><name>calendar/calendar-win2k-1.css</name></action>
+            <action method="addItem"><type>js</type><name>calendar/calendar.js</name></action>
+            <action method="addItem"><type>js</type><name>calendar/calendar-setup.js</name></action>
+	    <block type="olegnax_osc/onestepcheckout" name="olgnax_osc.appearance" template="olegnax_osc/appearance.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="olegnax_osc/onestepcheckout" name="olegnax_osc.onestep" template="olegnax_osc/onestepcheckout.phtml">
+                <block type="olegnax_osc/form_address" name="olegnax_osc.form.billing_address"
+                       as="billing_address" template="olegnax_osc/form/billing_address.phtml">
+                    <block type="olegnax_osc/form_address_billing" name="olegnax_osc.form.address.billing"
+                           as="billing" template="olegnax_osc/form/address/billing.phtml">
+                        <block type="core/text_list" name="olegnax_osc.form.address.billing.extra" as="extra"/>
+                    </block>
+                </block>
+                <block type="olegnax_osc/form_address" name="olegnax_osc.form.shipping_address"
+                       as="shipping_address" template="olegnax_osc/form/shipping_address.phtml">
+                    <block type="olegnax_osc/form_address_shipping" name="olegnax_osc.form.address.shipping"
+                           as="shipping" template="olegnax_osc/form/address/shipping.phtml">
+                        <block type="core/text_list" name="olegnax_osc.form.address.shipping.extra" as="extra"/>
+                    </block>
+                </block>                
+                
+                <block type="olegnax_osc/form_shippingmethod" name="olegnax_osc.form.shippingmethod"
+                       as="shippingmethod" template="olegnax_osc/form/shipping_method.phtml">
+                    <block type="core/text_list" name="olegnax_osc.form.shippingmethod.extra" as="extra"/>
+                </block>
+                <block type="olegnax_osc/form_paymentmethod" name="olegnax_osc.form.paymentmethod"
+                       as="paymentmethod" template="olegnax_osc/form/payment_method.phtml">
+                    <block type="core/text_list" name="olegnax_osc.form.paymentmethod.extra" as="extra"/>
+                </block>
+                <block type="olegnax_osc/form_shippingmethod" name="olegnax_osc.form.giftcard"
+                       as="gift_card" template="olegnax_osc/form/giftcard.phtml">
+                       <block type="core/text_list" name="olegnax_osc.form.shippingmethod.extra" as="extra"/>
+                </block>
+                
+                <block type="olegnax_osc/form_review_cart" name="olegnax_osc.form.review.cart"
+                       as="review.cart" template="olegnax_osc/form/review/cart.phtml">
+                    <action method="addItemRender">
+                        <type>default</type>
+                        <block>checkout/cart_item_renderer</block>
+                        <template>olegnax_osc/form/review/item.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>grouped</type>
+                        <block>checkout/cart_item_renderer_grouped</block>
+                        <template>olegnax_osc/form/review/item.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>configurable</type>
+                        <block>checkout/cart_item_renderer_configurable</block>
+                        <template>olegnax_osc/form/review/item.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>bundle</type>
+                        <block>bundle/checkout_cart_item_renderer</block>
+                        <template>olegnax_osc/form/review/item.phtml</template>
+                    </action>
+                    <action method="addItemRender">
+                        <type>downloadable</type>
+                        <block>downloadable/checkout_cart_item_renderer</block>
+                        <template>olegnax_osc/form/review/downloadable.phtml</template>
+                    </action>                    
+                </block>
+                <block type="checkout/cart_totals" name="checkout.onepage.review.info.totals"
+                           as="review.totals" template="olegnax_osc/form/review/grandtotal.phtml"/>
+
+
+                <block type="olegnax_osc/form_review_coupon" name="olegnax_osc.form.review.coupon"
+                       as="review.coupon" template="olegnax_osc/form/review/coupon.phtml"/>
+                <block type="olegnax_osc/form_review_enterprise_giftcard" name="olegnax_osc.form.review.enterprise.giftcard"
+                       as="review.enterprise.giftcard" template="olegnax_osc/form/review/enterprise/giftcard.phtml"/>
+                <block type="olegnax_osc/form_review_enterprise_storecredit" name="olegnax_osc.form.review.enterprise.storecredit"
+                       as="review.enterprise.storecredit" template="olegnax_osc/form/review/enterprise/storecredit.phtml"/>
+                <block type="olegnax_osc/form_review_enterprise_points" name="olegnax_osc.form.review.enterprise.points"
+                       as="review.enterprise.points" template="olegnax_osc/form/review/enterprise/points.phtml"/>                                
+                <block type="olegnax_osc/form_review_comments" name="olegnax_osc.form.review.comments" as="review.comments" template="olegnax_osc/form/review/comments.phtml"></block>
+                <block type="olegnax_osc/form_review_newsletter" name="olegnax_osc.form.review.newsletter" as="review.newsletter" template="olegnax_osc/form/review/newsletter.phtml"></block>
+                <block type="olegnax_osc/form_review_terms" name="olegnax_osc.form.review.terms"
+                       as="review.terms" template="olegnax_osc/form/review/terms.phtml"/>
+                <block type="core/text_list" name="olegnax_osc.form.review.extra" as="review.extra"/>
+            </block>
+        </reference>
+    </olegnax_osc_index_index>
+</layout>

@@ -1,0 +1,242 @@
+01/04/2016
+----------
+Athlete v1.5.0
+
+Added One Step Checkout Extension - Athlete Edition
+Updated Revolution Slider to Version 5
+Added New Preview in Quickstart
+Added Slim Header option
+Added Slim toolbar option (pagination and toolbar on one line)
+Added option to Hide copyright line in footer
+Added option for Add to cart button icon on hover
+Added new page template for fullscreen slideshow
+Added SmoothScroll
+Updated Revolutions Slider Slides
+Added New sample Slides for Revolution Slideshow
+Added option for product description content font size 
+Added option for fonts letter-spacing 
+Fixed SUPEE 7405: Cannot remove the item from Cart
+
+
+24/01/2016
+----------
+Athlete v1.4.7
+
+Added support for AheadWorks Blog v1.3.16
+Magento 1.9.2.2 Support
+Replaced Revolution Slider with Magento Extension
+Fixed Quick View pop-up CSS
+Fixed Image reload logic ( Quick view. Configurable swatches)
+Fixed issue wih product Custom Options 
+Fixed typo on register page
+Fixed month translation issue in Blog
+
+
+19/10/2015
+----------
+Athlete v1.4.6.1
+
+Fixed: Block cache keys
+Updated: Patches for old Magento versions
+
+
+19/10/2015
+----------
+Athlete v1.4.6
+
+Added: Magento 1.9.2.1 - Compatibility.
+Added: SSL check for Megamenu cache
+Fixed: Olegnax Color Swatch Out of Stock issue.
+Fixed: Magento 1.7.0.2 - Fatal error: Call to undefined method.
+Fixed: Bulk Related/Up-Sells Products images.
+Fixed: Quick view feature loads inside iframe.
+Updated: Quickstart package to latest Magento CE 1.9.2.1 version
+
+
+14/05/2015
+----------
+Athlete v1.4.5
+
+Added: Filtering by category for Mostviewed, Bestsellers & Featured blocks
+Updated: Sticky header function
+Fixed: Ajax Cart issue with file upload custom options
+Fixed: Quick View button for some type of products URL
+Fixed: Translation for color swatches
+Updated: Quickstart package to latest Magento CE 1.9.1.1 version
+
+
+21/04/2015
+----------
+Athlete v1.4.4
+
+Added: Support of Magento Configurable Swatches
+Added: Option to show Olegnax ColorSwatches  in Product Listing and Layered Navigation
+Fixed: Cart page styles for Downloadable product
+Minor CSS fixes
+
+
+12/02/2014
+----------
+Athlete v1.4.3.1
+
+Fixed: Checkout prefix inputs styling
+Fixed: Horizontal scroll on model devices
+Fixed: Hover on product in small grid columns
+Fixed: Banner sliders on tablets and mobile devices
+Fixed: Double scroll on product page
+Fixed: grid issue in 3 column layout
+
+
+09/12/2014
+----------
+Athlete v1.4.3
+
+fixed: AjaxCart products thumbnail issue
+fixed: Blog custom images issue
+fixed: Slider Revolution updated to latest version
+fixed: Minor CSS issues
+added: New and Sale products carousel shortcodes
+
+
+
+30/09/2014
+----------
+Athlete v1.4.2
+
+fixed: Mobile menu dropdown links for parent categories
+fixed: Mega Menu click on Laptop with Touch Screen
+fixed: Fixed hiding main menu on devices with screen "1024 and >"  when scrolling down and up again, or touch display;
+
+
+
+20/06/2014
+----------
+Athlete v1.4.1
+
+added: mostviewed products block
+added: bestsellers product block
+added: option to change header cart bg
+added: option for search button bg
+added: font-awesome
+added: default text to newsletter input
+added: options to control columns num in related and upsell products
+
+updated: code for footer blocks in blocks.xml
+updated: footer customer service static block
+updated: oauth classes to avoid conflict with oauth php extension
+updated: banner slider bugs
+updated: listing toolbar icons
+updated: revolution slider updated to latest version
+updated: revolution slider caption
+updated: sticky header animation
+updated: default revolution slides
+
+fixed: carousel bug in megamenu
+fixed: products grid
+fixed: css fixes
+fixed: cart popup - not showing correct image for configurable product
+fixed: cart popup in sticky header
+fixed: footer social icons bug
+fixed: megamenu in sticky header
+fixed: navigation background in responsive mode
+fixed: content banner letter spacing
+fixed: cloudzoom border color option
+
+
+
+02/06/2014
+----------
+Athlete v1.4
+
+added: option to enable/disable totop button
+added: option to enable/disable prev/next links
+added: option to change layout width
+added: fluid layout
+added: option to control listing image width
+added: option for logo padding
+added: option for sticky header
+added: support for 1.9
+
+updated: jquery lib updated to 1.11
+updated: Rss page
+updated: carousel script updated to owl carousel 
+updated: default static blocks
+update: quick start package upgraded to 1.9.0.1
+updated: documentation
+
+fixed: megamenu css
+fixed: blog in IE11
+fixed: blog read more button
+fixed: quick view css
+fixed: header search behavior
+fixed: static block in header
+fixed: paypal button on product page
+fixed: hide brands slider on login page
+fixed: slideshow - hide arrows when there is only one slide
+fixed: review block - add support for disable module output option
+fixed: prevent addthis from changing address bar
+fixed: merged js error
+fixed: sorter dropdown css
+fixed: product action links postion
+fixed: policy popup background bug
+fixed: clean up css code
+fixed: twitter include bug
+fixed: cart popup - condtions for checkout button
+
+
+
+04/04/2014
+----------
+Athlete v1.3.1
+quick start package update - remove admin user from sql dump
+
+
+04/02/2014
+----------
+Athlete v1.3
+
+added: support of aheadworks blog extension
+added: new banner slider group for banners on blog page
+added: option to control main menu position - to the right of logo / under logo
+added: static block for header - displayed when main menu position = under logo
+added: support of colorswatch in quick view popup
+
+updated: documentation
+
+fixed: ipad grid hover
+fixed: search field size
+fixed: twitter lib include error
+fixed: quick view button bug
+fixed: quick view popup carousel bug
+fixed: minor css fixes
+fixed: add titles to action buttons on grid
+fixed: ajax cart typo
+
+
+
+03/19/2014
+----------
+Athlete v1.2
+
+updated: documentation
+
+added: quick start package
+
+
+
+
+03/19/2014
+----------
+Athlete v1.1
+
+fixed: css
+fixed: retina for banners
+
+added: ajax cart
+
+
+
+
+03/16/2014
+----------
+Athlete v1.0

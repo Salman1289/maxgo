@@ -1,0 +1,22 @@
+<div class="footer-subscribe">
+	<div class="title"><?php echo $this->__('Subscribe to Latest Updates') ?></div>
+	<form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="footer-newsletter-validate-detail">
+		<div class="input-box">
+		<input type="text" name="email" id="footer-newsletter"
+		       title="<?php echo Mage::helper('core')->quoteEscape($this->__('Sign up for our newsletter')) ?>"
+		       class="input-text required-entry validate-email" 
+		       placeholder="Enter your email" 
+		       value="<?php echo Mage::helper('core')->quoteEscape($this->__('')) ?>"
+		       
+			/>
+		</div>
+		<button type="submit" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Subscribe')) ?>" class="button">
+			<span><span><?php echo Mage::helper('core')->quoteEscape($this->__('Subscribe')) ?></span></span></button>
+		<div class="clear"></div>
+	</form>
+	<script type="text/javascript">
+		//<![CDATA[
+		var newsletterSubscriberFormDetail = new VarienForm('footer-newsletter-validate-detail');
+		//]]>
+	</script>
+</div>

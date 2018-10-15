@@ -271,7 +271,7 @@ class Varien_File_Uploader
         //run validate callbacks
         foreach ($this->_validateCallbacks as $params) {
             if (is_object($params['object']) && method_exists($params['object'], $params['method'])) {
-                $params['object']->$params['method']($this->_file['tmp_name']);
+                $params['object']->{$params['method']}($this->_file['tmp_name']);
             }
         }
     }
@@ -519,7 +519,7 @@ class Varien_File_Uploader
 
                 $fileAttributes = $tmp_var;
                 $this->_file = $fileAttributes;
-            } elseif( count($fileId) > 0 && isset($_FILES[$fileId])) {
+            } elseif( empty($fileId) == false && isset($_FILES[$fileId])) {
                 $this->_uploadType = self::SINGLE_STYLE;
                 $this->_file = $_FILES[$fileId];
             } elseif( $fileId == '' ) {

@@ -1,0 +1,101 @@
+<?php $posts = $this->getPosts(); ?>
+
+
+         <section class="gallery-sec section-strt">
+
+            <div class="container">
+
+               <div class="gallery-main">
+
+                  <h2>Customer Galleryaaa</h2>
+
+                  <p class="gallery-btn">
+
+                     <span><a href="#" class="imgs-btn active">Images</a></span>
+
+                     <span><a href="#" class="vid-btn">Videos</a></span>
+
+                  </p>
+
+               </div>
+
+               <div class="row images">
+               	<!-- This row is for Images of "Customer blogpost type" -->
+               	<?php foreach ($posts as $post): ?>
+
+               		<?php $category = $post->Cats;	
+
+               		$category = $category[0];
+
+               		// print_r($category);
+               		$cate_title = $category['title'];
+
+               		if($cate_title == 'Customers'){ ?>
+
+               		<div class="col-lg-3 col-md-6 col-sm-6 gallery-wrap-div">
+
+               		 <?php if ($post->getImage()) : list($width, $height, $type, $attr) = getimagesize(Mage::getBaseUrl('media'). $post->getImage()); ?>
+
+               		<img <?php echo $attr; ?> src="<?php echo Mage::getBaseUrl('media') . $post->getImage(); ?>" <?php echo ($post->getImageRetina() ? 'data-srcX2="'.Mage::getBaseUrl('media') . $post->getImageRetina().'"' : '' ); ?>>
+
+               		 <?php endif; ?>
+               		</div>
+
+               	
+               	<?php } ?>
+                  <?php endforeach; ?>
+               </div>
+
+               <div class="row videos">
+
+               	<!-- This row is for Videos of "Customer blogpost type" -->
+
+               	<?php foreach ($posts as $post): ?>
+
+               		<?php $category = $post->Cats;	
+
+               		$category = $category[0];
+               		
+               		$cate_title = $category['title'];
+
+               		if($cate_title == 'Customers'){
+               		//print_r($category[0]);exit;
+// foreach($category as $key => $s){
+// 	//print_r($category[$key]['Title']);
+// 	// echo $category[$key]['Title'];
+// };
+               		 ?>
+               		<div class="col-lg-3 col-md-6 col-sm-6 gallery-wrap-div">
+               			<!-- this post content only contains the video  -->
+               			<!-- there should be only video -->
+
+					<?php  
+					 // $content = $post->getData('post_content');
+					 // echo $content;
+					echo $post->getPostContent(); 
+					// $c = $post->getPostContent(); 
+					// preg_match_all('/<iframe>(.*?)<\/iframe>/s', $c, $matches);
+
+//HTML array in $matches[1]
+// print_r($matches);
+
+
+					?>
+					<?php //echo $post->getPostId(); ?>
+
+               		</div>
+
+               	<?php } ?>
+               
+                  <?php endforeach; ?>
+               </div>
+
+
+              <div class="view-btn">
+                  <span><a>View All</a></span>
+               </div>
+            </div>
+              
+         </section>
+
+<?php //echo $this->getChildHtml('aw_blog_comments_toolbar'); ?>

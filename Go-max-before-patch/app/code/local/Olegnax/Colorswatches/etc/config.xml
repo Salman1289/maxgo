@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Olegnax_Colorswatches>
+			<version>2.0.0</version>
+		</Olegnax_Colorswatches>
+	</modules>
+	<frontend>
+		<routers>
+			<olegnaxcolorswatches>
+				<use>standard</use>
+				<args>
+					<module>Olegnax_Colorswatches</module>
+					<frontName>olegnaxcolorswatches</frontName>
+				</args>
+			</olegnaxcolorswatches>
+		</routers>
+		<layout>
+			<updates>
+				<olegnaxcolorswatches>
+					<file>olegnax/colorswatches.xml</file>
+				</olegnaxcolorswatches>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Olegnax_Colorswatches>
+					<files>
+						<default>Olegnax_Colorswatches.csv</default>
+					</files>
+				</Olegnax_Colorswatches>
+			</modules>
+		</translate>
+        <events>
+            <catalog_block_product_list_collection>
+                <observers>
+                    <olegnaxcolorswatches>
+                        <class>olegnaxcolorswatches/observer</class>
+                        <method>productListCollectionLoadAfter</method>
+                    </olegnaxcolorswatches>
+                </observers>
+            </catalog_block_product_list_collection>
+            <controller_action_layout_generate_blocks_after>
+                <observers>
+                    <olegnaxcolorswatches>
+                        <class>olegnaxcolorswatches/observer</class>
+                        <method>convertLayerBlock</method>
+                    </olegnaxcolorswatches>
+                </observers>
+            </controller_action_layout_generate_blocks_after>
+        </events>
+        <product>
+            <configurable>
+                <child>
+                    <attributes>
+                        <image/>
+                        <small_image/>
+                        <image_label/>
+                        <small_image_label/>
+                    </attributes>
+                </child>
+            </configurable>
+        </product>
+	</frontend>
+	<adminhtml>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<olegnaxcolorswatches>
+											<title>Olegnax Colorswatches</title>
+										</olegnaxcolorswatches>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+	<global>
+		<blocks>
+			<olegnaxcolorswatches>
+				<class>Olegnax_Colorswatches_Block</class>
+			</olegnaxcolorswatches>
+            <configurableswatches>
+                <rewrite>
+                    <catalog_media_js_product>Olegnax_Colorswatches_Block_ConfigurableSwatches_Catalog_Media_Js_Product</catalog_media_js_product>
+                </rewrite>
+            </configurableswatches>
+		</blocks>
+        <models>
+			<olegnaxcolorswatches>
+				<class>Olegnax_Colorswatches_Model</class>
+                <resourceModel>olegnaxcolorswatches_resource</resourceModel>
+            </olegnaxcolorswatches>
+            <olegnaxcolorswatches_resource>
+                <class>Olegnax_Colorswatches_Model_Resource</class>
+            </olegnaxcolorswatches_resource>
+		</models>
+		<helpers>
+			<olegnaxcolorswatches>
+				<class>Olegnax_Colorswatches_Helper</class>
+			</olegnaxcolorswatches>
+            <configurableswatches>
+                <rewrite>
+                    <mediafallback>Olegnax_Colorswatches_Helper_Mediafallback</mediafallback>
+                </rewrite>
+            </configurableswatches>
+		</helpers>
+	</global>
+	<default>
+		<olegnaxcolorswatches>
+			<main>
+				<status>1</status>
+				<jquery>1</jquery>
+				<hide_dropdowns>1</hide_dropdowns>
+				<replace_image>1</replace_image>
+				<attribute_title>1</attribute_title>
+				<swatch_images><![CDATA[Color : Black = black.jpg
+Color : White = white.jpg
+Color : Red = red.jpg
+Color : Green = green.jpg
+Color : Blue = blue.jpg
+Color : Yellow = yellow.jpg
+Size : Small = size_s.jpg
+Size : Medium = size_m.jpg
+Size : Large = size_l.jpg
+Size : XL = size_xl.jpg]]></swatch_images>
+			</main>
+		</olegnaxcolorswatches>
+	</default>
+</config>

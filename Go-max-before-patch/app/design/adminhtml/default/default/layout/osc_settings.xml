@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+	    <reference name="head">
+            <action method="addItem"><type>js</type><name>jscolor/jscolor.js</name></action>
+        </reference>
+    </default>
+</layout>
